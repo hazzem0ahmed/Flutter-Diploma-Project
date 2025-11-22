@@ -10,6 +10,5 @@ abstract class AppAsset {
   static const String onBoarding5Image= "assets/images/onBoarding5.png";
   static const String routeLogo= "assets/images/route_logo.png";
   static const String supervisedImage= "assets/images/supervised_logo.png";
-  static const String googleIcon= "assets/images/google_icon.png";
 
 }
