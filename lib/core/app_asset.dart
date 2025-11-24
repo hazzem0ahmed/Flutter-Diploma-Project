@@ -4,6 +4,7 @@ abstract class AppAsset {
   static const String egyptImage= "assets/images/egypt.png";
   static const String forgotPassWord= "assets/images/Forgot password.png";
   static const String googleIcon= "assets/images/google_icon.svg";
+  static const String onBoardingImage= "assets/images/onboarding.png";
   static const String onBoarding1Image= "assets/images/onboarding1.png";
   static const String onBoarding2Image= "assets/images/onBoarding2.png";
   static const String onBoarding3Image= "assets/images/onBoarding3.png";
