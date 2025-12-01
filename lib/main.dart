@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/presentation/widgets/language/language_contract.dart';
 import 'package:movies/presentation/widgets/language/language_vm.dart';
 import 'l10n/generated/app_localizations.dart';
+import 'on_boarding/on_boarding.dart';
+import 'on_boarding/on_boarding_final.dart';
 
   runApp(
     BlocProvider<LanguageViewModel>(
@@ -24,6 +26,14 @@ class MoviesApp extends StatelessWidget {
           locale: state.locale,
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
+routes: {
+  OnBoarding.routeName :( _)=>OnBoarding(),
+  OnBoardingFinal.routeName :( _)=>OnBoardingFinal(),
+
+},
+ initialRoute: OnBoarding.routeName,
+
+
         );
       },
     );
