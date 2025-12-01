@@ -23,7 +23,7 @@ class _GoogleButtonDesignState extends State<GoogleButtonDesign> {
         backgroundColor: AppColors.yellow,
         foregroundColor: AppColors.black,
       ),
-      onPressed: () async {
+       onPressed: () async {
         try {
           final user = await FirebaseAuthServices().googleSignIn();
 
@@ -48,7 +48,7 @@ class _GoogleButtonDesignState extends State<GoogleButtonDesign> {
             width: context.spaceWidth * 0.1,
             height: context.spaceHeight * 0.05,
           ),
-          Text(context.locale.logInWithGoogle),
+          Text(context.locale.loginWithGoogle),
         ],
       ),
     );

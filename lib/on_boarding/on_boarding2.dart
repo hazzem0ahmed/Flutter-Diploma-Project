@@ -4,7 +4,7 @@ import 'package:movies/core/app_colors.dart';
 import 'package:movies/on_boarding/on_boarding1.dart';
 import '../presentation/widgets/elevated_button/elevated_button.dart';
 import '../presentation/widgets/elevated_button/outlined_button.dart';
-import 'on_boarding3.dart';
+
 
 class OnBoarding2 extends StatelessWidget {
   static const String routeName = "/onboarding2";

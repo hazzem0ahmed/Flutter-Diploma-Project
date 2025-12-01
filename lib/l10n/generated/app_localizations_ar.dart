@@ -64,4 +64,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get finish => 'إنهاء';
+
+  @override
+  String get loginWithGoogle => 'تسجيل الدخول بإستخدام جوجل';
 }

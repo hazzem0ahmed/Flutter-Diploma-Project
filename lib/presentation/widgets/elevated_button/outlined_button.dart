@@ -6,7 +6,7 @@ class OutlinedButtonWidget extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
 
-  OutlinedButtonWidget({super.key,required this.text,required this.onPressed});
+  const OutlinedButtonWidget({super.key,required this.text,required this.onPressed});
 
   @override
   Widget build(BuildContext context) {

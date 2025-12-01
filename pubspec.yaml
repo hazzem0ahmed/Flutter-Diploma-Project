@@ -36,6 +36,14 @@ dependencies:
   animated_toggle_switch: ^0.8.5
   bloc:
   flutter_bloc:
+  retrofit:
+  json_annotation:
+  dio:
+  pretty_dio_logger:
+  firebase_core: ^4.2.0
+  firebase_auth: ^6.1.1
+  google_sign_in: ^6.2.1
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -44,6 +52,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  retrofit_generator:
+  json_serializable:
+  build_runner:
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

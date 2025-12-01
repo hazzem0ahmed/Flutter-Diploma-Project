@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:movies/core/app_asset.dart';
 import 'package:movies/core/app_colors.dart';
+import 'package:movies/on_boarding/on_boarding1.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../presentation/widgets/elevated_button/elevated_button.dart';
-import 'on_boarding_final.dart';
+
 
 class OnBoarding extends StatelessWidget {
   static const String routeName = "/onboarding";
@@ -63,7 +64,7 @@ class OnBoarding extends StatelessWidget {
                 ),
                 SizedBox(height: 16),
                 ElevatedButtonWidget(onPressed: (){
-                  Navigator.pushReplacementNamed(context, OnBoardingFinal.routeName);
+                  Navigator.pushReplacementNamed(context, OnBoarding1.routeName);
                 },
                   text: 'Explore Now',)
               ],
