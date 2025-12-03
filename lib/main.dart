@@ -15,7 +15,8 @@ void main() {
 }
 
 class MoviesApp extends StatelessWidget {
-  const MoviesApp({super.key});
+  const MoviesApp({super.key, this.token});
+  final String? token;
 
   @override
   Widget build(BuildContext context) {
