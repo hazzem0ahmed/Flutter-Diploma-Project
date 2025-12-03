@@ -135,26 +135,38 @@ abstract class AppLocalizations {
   String get discoverMovies;
 
   /// No description provided for @title1.
+  /// No description provided for @registerTitle.
   ///
   /// In en, this message translates to:
+  /// **'Register'**
+  String get registerTitle;
   /// **'Explore a vast collection of movies in all\n qualities and genres. Find your next \n favorite film with ease.'**
   String get title1;
 
+  /// No description provided for @avatar.
   /// No description provided for @next.
   ///
   /// In en, this message translates to:
+  /// **'Avatar'**
+  String get avatar;
   /// **'Next'**
   String get next;
 
+  /// No description provided for @name.
   /// No description provided for @exploreAllGenres.
   ///
   /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
   /// **'Explore All Genres'**
   String get exploreAllGenres;
 
+  /// No description provided for @email.
   /// No description provided for @title2.
   ///
   /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
   /// **'Discover movies from every genre, in all\\n available qualities. Find something new\\n and exciting to watch every day.'**
   String get title2;
 
@@ -163,32 +175,47 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Back'**
   String get back;
+  /// **'Password'**
+  String get password;
 
   /// No description provided for @createWatchlists.
+  /// No description provided for @confirmPassword.
   ///
   /// In en, this message translates to:
   /// **'Create Watchlists'**
   String get createWatchlists;
+  /// **'Confirm Password'**
+  String get confirmPassword;
 
   /// No description provided for @title3.
+  /// No description provided for @phoneNumber.
   ///
   /// In en, this message translates to:
   /// **'Save movies to your watchlist to keep\n track of what you want to watch next.\n Enjoy films in various qualities and genres.'**
   String get title3;
+  /// **'Phone Number'**
+  String get phoneNumber;
 
   /// No description provided for @rateReviewandLearn.
+  /// No description provided for @createAccount.
   ///
   /// In en, this message translates to:
   /// **'Rate, Review, and Learn'**
   String get rateReviewandLearn;
+  /// **'Create Account'**
+  String get createAccount;
 
   /// No description provided for @title4.
+  /// No description provided for @alreadyHaveAccount.
   ///
   /// In en, this message translates to:
   /// **'Share your thoughts on the movies\n you\'ve watched. Dive deep into film\n details and help others discover great\n movies with your reviews.'**
   String get title4;
+  /// **'Already Have Account ?'**
+  String get alreadyHaveAccount;
 
   /// No description provided for @startWatchingNow.
+  /// No description provided for @login.
   ///
   /// In en, this message translates to:
   /// **'Start Watching Now'**
@@ -205,6 +232,8 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Login With Google'**
   String get loginWithGoogle;
+  /// **'Login'**
+  String get login;
 }
 
 class _AppLocalizationsDelegate

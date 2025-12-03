@@ -7,6 +7,7 @@ class ElevatedButtonWidget extends StatelessWidget {
   final VoidCallback onPressed;
 
   const ElevatedButtonWidget({super.key,required this.text,required this.onPressed});
+  ElevatedButtonWidget({super.key,required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +36,29 @@ class ElevatedButtonWidget extends StatelessWidget {
            ],
          )),
     );
+    return ElevatedButton(
+        onPressed: (){
+      //todo
+      },
+        style: ElevatedButton.styleFrom(
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+
+          ),
+          backgroundColor: AppColors.yellow,
+          foregroundColor: AppColors.black,
+        ),
+       child: Row(
+         mainAxisAlignment: MainAxisAlignment.center,
+         children: [
+           Text(text,style: TextStyle(
+             fontWeight: FontWeight.w400,
+             fontSize: 16,
+             color: AppColors.black,
+           ),),
+         ],
+       ));
     }
   }
 

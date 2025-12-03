@@ -5,6 +5,7 @@
 
 version:
   revision: "a0e9b9dbf78c8a5ef39b45a7efd40ed2de19c1a7"
+  revision: "a402d9a4376add5bc2d6b1e33e53edaae58c07f8"
   channel: "stable"
 
 project_type: app
@@ -15,24 +16,38 @@ migration:
     - platform: root
       create_revision: a0e9b9dbf78c8a5ef39b45a7efd40ed2de19c1a7
       base_revision: a0e9b9dbf78c8a5ef39b45a7efd40ed2de19c1a7
+      create_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
+      base_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
     - platform: android
+      create_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
+      base_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
       create_revision: a0e9b9dbf78c8a5ef39b45a7efd40ed2de19c1a7
       base_revision: a0e9b9dbf78c8a5ef39b45a7efd40ed2de19c1a7
     - platform: ios
       create_revision: a0e9b9dbf78c8a5ef39b45a7efd40ed2de19c1a7
       base_revision: a0e9b9dbf78c8a5ef39b45a7efd40ed2de19c1a7
+      create_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
+      base_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
     - platform: linux
       create_revision: a0e9b9dbf78c8a5ef39b45a7efd40ed2de19c1a7
       base_revision: a0e9b9dbf78c8a5ef39b45a7efd40ed2de19c1a7
+      create_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
+      base_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
     - platform: macos
       create_revision: a0e9b9dbf78c8a5ef39b45a7efd40ed2de19c1a7
       base_revision: a0e9b9dbf78c8a5ef39b45a7efd40ed2de19c1a7
+      create_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
+      base_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
     - platform: web
       create_revision: a0e9b9dbf78c8a5ef39b45a7efd40ed2de19c1a7
       base_revision: a0e9b9dbf78c8a5ef39b45a7efd40ed2de19c1a7
+      create_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
+      base_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
     - platform: windows
       create_revision: a0e9b9dbf78c8a5ef39b45a7efd40ed2de19c1a7
       base_revision: a0e9b9dbf78c8a5ef39b45a7efd40ed2de19c1a7
+      create_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
+      base_revision: a402d9a4376add5bc2d6b1e33e53edaae58c07f8
 
   # User provided section
 

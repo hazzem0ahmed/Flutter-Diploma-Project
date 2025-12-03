@@ -31,35 +31,45 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get title1 =>
       'استكشف مجموعة واسعة من الأفلام بجميع \n الجودات والأنواع. اعثر على فيلمك المفضل \n التالي بسهولة.';
+  String get registerTitle => 'إنشاء حساب';
 
   @override
+  String get avatar => 'الصورة الرمزية';
   String get next => 'التالي';
 
   @override
+  String get name => 'الاسم';
   String get exploreAllGenres => 'استكشف جميع الأنواع';
 
   @override
+  String get email => 'البريد الإلكتروني';
   String get title2 =>
       'اكتشف أفلامًا من كل الأنواع، بجميع \n الجودات المتاحة. اعثر على شيء جديد \n ومثير لمشاهدته كل يوم.';
 
   @override
+  String get password => 'كلمة المرور';
   String get back => 'رجوع';
 
   @override
+  String get confirmPassword => 'تأكيد كلمة المرور';
   String get createWatchlists => 'أنشئ قوائم المشاهدة';
 
   @override
   String get title3 =>
       'احفظ الأفلام في قائمة المشاهدة الخاصة بك لتتبع \n ما تريد مشاهدته بعد ذلك. \n استمتع بالأفلام بمختلف الجودات والأنواع.';
+  String get phoneNumber => 'رقم الهاتف';
 
   @override
+  String get createAccount => 'إنشاء حساب';
   String get rateReviewandLearn => 'قيّم، راجع، وتعلّم';
 
   @override
+  String get alreadyHaveAccount => 'هل لديك حساب بالفعل؟';
   String get title4 =>
       'شارك بآرائك حول الأفلام التي \n شاهدتها. تعمق في تفاصيل الفيلم \n وساعد الآخرين على اكتشاف أفلام \n رائعة من خلال مراجعاتك.';
 
   @override
+  String get login => 'تسجيل الدخول';
   String get startWatchingNow => 'ابدأ المشاهدة الآن';
 
   @override

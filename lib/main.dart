@@ -1,10 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies/presentation/Register/register_screen.dart';
 import 'package:movies/presentation/widgets/language/language_contract.dart';
 import 'package:movies/presentation/widgets/language/language_vm.dart';
 import 'firebase_options.dart';
-
 import 'l10n/generated/app_localizations.dart';
 import 'on_boarding/on_boarding.dart';
 
@@ -15,6 +15,7 @@ void main() async{
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+void main() {
   runApp(
     BlocProvider<LanguageViewModel>(
       create: (context) => LanguageViewModel(),
@@ -41,6 +42,10 @@ routes: {
  initialRoute: OnBoarding.routeName,
 
 
+          routes: {
+            RegisterScreen.routeName: (context) => RegisterScreen(),
+          },
+          initialRoute: RegisterScreen.routeName,
         );
       },
     );
