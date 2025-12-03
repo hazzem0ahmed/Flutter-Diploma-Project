@@ -1,0 +1,14 @@
+{
+  "language": "اللغة",
+  "hazzem": "حازم",
+  "registerTitle": "إنشاء حساب",
+  "avatar": "الصورة الرمزية",
+  "name": "الاسم",
+  "email": "البريد الإلكتروني",
+  "password": "كلمة المرور",
+  "confirmPassword": "تأكيد كلمة المرور",
+  "phoneNumber": "رقم الهاتف",
+  "createAccount": "إنشاء حساب",
+  "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
+  "login": "تسجيل الدخول"
+}

@@ -1,0 +1,14 @@
+{
+  "language": "Language",
+  "hazzem": "Hazzem",
+  "registerTitle": "Register",
+  "avatar": "Avatar",
+  "name": "Name",
+  "email": "Email",
+  "password": "Password",
+  "confirmPassword": "Confirm Password",
+  "phoneNumber": "Phone Number",
+  "createAccount": "Create Account",
+  "alreadyHaveAccount": "Already Have Account ?",
+  "login": "Login"
+}
