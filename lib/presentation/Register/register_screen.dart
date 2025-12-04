@@ -53,220 +53,223 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.black,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: const Icon(Icons.arrow_back, color: AppColors.white),
-        title:  Text(
-          AppLocalizations.of(context)!.createAccount,
-          style: TextStyle(color: AppColors.white),
+    return BlocProvider<RegisterCubit>(
+      create: (context) => cubit,
+      child: Scaffold(
+        backgroundColor: AppColors.black,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: const Icon(Icons.arrow_back, color: AppColors.white),
+          title:  Text(
+            AppLocalizations.of(context)!.createAccount,
+            style: TextStyle(color: AppColors.white),
+          ),
         ),
-      ),
-
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(18),
-        child: Column(
-          children: [
-
-            const SizedBox(height: 20),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // -------- Avatar 1 --------
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      selectedAvatar = 0;
-                    });
-                  },
-                  child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 8),
-                    padding: EdgeInsets.all(3),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: selectedAvatar == 0 ? Colors.blue : Colors.transparent,
-                        width: 3,
-                      ),
-                    ),
-                    child: CircleAvatar(
-                      radius: 35,
-                      backgroundImage: AssetImage(AppAsset.gamerImage3
-                      ),
-                    ),
-                  ),
-                ),
-
-                // -------- Avatar 2 --------
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      selectedAvatar = 1;
-                    });
-                  },
-                  child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 8),
-                    padding: EdgeInsets.all(3),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: selectedAvatar == 1 ? Colors.blue : Colors.transparent,
-                        width: 3,
-                      ),
-                    ),
-                    child: CircleAvatar(
-                      radius: 35,
-                      backgroundImage: AssetImage(AppAsset.gamerImage1),
-                    ),
-                  ),
-                ),
-
-                // -------- Avatar 3 --------
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      selectedAvatar = 2;
-                    });
-                  },
-                  child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 8),
-                    padding: EdgeInsets.all(3),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: selectedAvatar == 2 ? Colors.blue : Colors.transparent,
-                        width: 3,
-                      ),
-                    ),
-                    child: CircleAvatar(
-                      radius: 35,
-                      backgroundImage: AssetImage(AppAsset.gamerImage2),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 25),
-
-            // --- Name ---
-            _inputField(
-              label: AppLocalizations.of(context)!.name,
-              icon: Icons.badge_outlined,
-            ),
-            const SizedBox(height: 12),
-
-            // --- Email ---
-            _inputField(
-              label: AppLocalizations.of(context)!.email,
-              icon: Icons.email_outlined,
-            ),
-            const SizedBox(height: 12),
-
-            // --- Password ---
-            _inputField(
-              label: AppLocalizations.of(context)!.password,
-              icon: Icons.lock_outline,
-              obscure: !showPassword,
-              suffix: IconButton(
-                icon: Icon(
-                  showPassword
-                      ? Icons.visibility
-                      : Icons.visibility_off,
-                  color: Colors.white70,
-                ),
-                onPressed: () =>
-                    setState(() => showPassword = !showPassword),
-              ),
-            ),
-            const SizedBox(height: 12),
-
-            // --- Confirm Password ---
-            _inputField(
-              label: AppLocalizations.of(context)!.confirmPassword,
-              icon: Icons.lock_outline,
-              obscure: !showConfirmPassword,
-              suffix: IconButton(
-                icon: Icon(
-                  showConfirmPassword
-                      ? Icons.visibility
-                      : Icons.visibility_off,
-                  color: Colors.white70,
-                ),
-                onPressed: () =>
-                    setState(() => showConfirmPassword = !showConfirmPassword),
-              ),
-            ),
-            const SizedBox(height: 12),
-
-            // --- Phone Number ---
-            _inputField(
-              label: AppLocalizations.of(context)!.phoneNumber,
-              icon: Icons.phone_outlined,
-            ),
-            const SizedBox(height: 25),
-
-            // --- Create Account Button ---
-            SizedBox(
-              width: double.infinity,
-              height: 55,
-              child:  BlocBuilder<RegisterCubit, RegisterState>(
-                builder:
-                    (context, state) => ElevatedButton(
-                  onPressed: () {
-                    if (formKey.currentState!.validate()) {
-                      cubit.doAction(
-                        RegisterUserAction(
-                          nameController.text,
-                          emailController.text,
-                          passwordController.text,
-                          passwordConfirmationController.text,
+      
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.all(18),
+          child: Column(
+            children: [
+      
+              const SizedBox(height: 20),
+      
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // -------- Avatar 1 --------
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedAvatar = 0;
+                      });
+                    },
+                    child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 8),
+                      padding: EdgeInsets.all(3),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: selectedAvatar == 0 ? Colors.blue : Colors.transparent,
+                          width: 3,
                         ),
-                      );
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.white,
+                      ),
+                      child: CircleAvatar(
+                        radius: 35,
+                        backgroundImage: AssetImage(AppAsset.gamerImage3
+                        ),
+                      ),
+                    ),
                   ),
-                  child:
-                  state.loginResources.status == Status.loading
-                      ? const CircularProgressIndicator()
-                      : Text(
-                    AppLocalizations.of(context)!.login,
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleMedium!
-                        .copyWith(color: AppColors.white),
+      
+                  // -------- Avatar 2 --------
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedAvatar = 1;
+                      });
+                    },
+                    child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 8),
+                      padding: EdgeInsets.all(3),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: selectedAvatar == 1 ? Colors.blue : Colors.transparent,
+                          width: 3,
+                        ),
+                      ),
+                      child: CircleAvatar(
+                        radius: 35,
+                        backgroundImage: AssetImage(AppAsset.gamerImage1),
+                      ),
+                    ),
                   ),
+      
+                  // -------- Avatar 3 --------
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedAvatar = 2;
+                      });
+                    },
+                    child: Container(
+                      margin: EdgeInsets.symmetric(horizontal: 8),
+                      padding: EdgeInsets.all(3),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: selectedAvatar == 2 ? Colors.blue : Colors.transparent,
+                          width: 3,
+                        ),
+                      ),
+                      child: CircleAvatar(
+                        radius: 35,
+                        backgroundImage: AssetImage(AppAsset.gamerImage2),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 25),
+      
+              // --- Name ---
+              _inputField(
+                label: AppLocalizations.of(context)!.name,
+                icon: Icons.badge_outlined,
+              ),
+              const SizedBox(height: 12),
+      
+              // --- Email ---
+              _inputField(
+                label: AppLocalizations.of(context)!.email,
+                icon: Icons.email_outlined,
+              ),
+              const SizedBox(height: 12),
+      
+              // --- Password ---
+              _inputField(
+                label: AppLocalizations.of(context)!.password,
+                icon: Icons.lock_outline,
+                obscure: !showPassword,
+                suffix: IconButton(
+                  icon: Icon(
+                    showPassword
+                        ? Icons.visibility
+                        : Icons.visibility_off,
+                    color: Colors.white70,
+                  ),
+                  onPressed: () =>
+                      setState(() => showPassword = !showPassword),
                 ),
               ),
-
-            ),
-
-            const SizedBox(height: 20),
-
-            // --- Login Link ---
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children:  [
-                Text(AppLocalizations.of(context)!.alreadyHaveAccount,
-                    style: TextStyle(color: AppColors.white)),
-                SizedBox(width: 5),
-                Text(
-                  AppLocalizations.of(context)!.login,
-                  style: TextStyle(
-                      color: AppColors.white,
-                      fontWeight: FontWeight.bold),
+              const SizedBox(height: 12),
+      
+              // --- Confirm Password ---
+              _inputField(
+                label: AppLocalizations.of(context)!.confirmPassword,
+                icon: Icons.lock_outline,
+                obscure: !showConfirmPassword,
+                suffix: IconButton(
+                  icon: Icon(
+                    showConfirmPassword
+                        ? Icons.visibility
+                        : Icons.visibility_off,
+                    color: Colors.white70,
+                  ),
+                  onPressed: () =>
+                      setState(() => showConfirmPassword = !showConfirmPassword),
                 ),
-              ],
-            ),
-
-            const SizedBox(height: 20),
-
-            const LanguageSwitch(),
-          ],
+              ),
+              const SizedBox(height: 12),
+      
+              // --- Phone Number ---
+              _inputField(
+                label: AppLocalizations.of(context)!.phoneNumber,
+                icon: Icons.phone_outlined,
+              ),
+              const SizedBox(height: 25),
+      
+              // --- Create Account Button ---
+              SizedBox(
+                width: double.infinity,
+                height: 55,
+                child:  BlocBuilder<RegisterCubit, RegisterState>(
+                  builder:
+                      (context, state) => ElevatedButton(
+                    onPressed: () {
+                      if (formKey.currentState!.validate()) {
+                        cubit.doAction(
+                          RegisterUserAction(
+                            nameController.text,
+                            emailController.text,
+                            passwordController.text,
+                            passwordConfirmationController.text,
+                          ),
+                        );
+                      }
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.white,
+                    ),
+                    child:
+                    state.loginResources.status == Status.loading
+                        ? const CircularProgressIndicator()
+                        : Text(
+                      AppLocalizations.of(context)!.login,
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleMedium!
+                          .copyWith(color: AppColors.white),
+                    ),
+                  ),
+                ),
+      
+              ),
+      
+              const SizedBox(height: 20),
+      
+              // --- Login Link ---
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:  [
+                  Text(AppLocalizations.of(context)!.alreadyHaveAccount,
+                      style: TextStyle(color: AppColors.white)),
+                  SizedBox(width: 5),
+                  Text(
+                    AppLocalizations.of(context)!.login,
+                    style: TextStyle(
+                        color: AppColors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+      
+              const SizedBox(height: 20),
+      
+              const LanguageSwitch(),
+            ],
+          ),
         ),
       ),
     );

@@ -9,7 +9,6 @@ import '../../network/results.dart';
 class RegisterCubit
     extends BaseCubit<RegisterState, RegisterAction, RegisterNavigationAction> {
   SignupUserUseCase useCase;
-
   RegisterCubit(this.useCase) : super(RegisterState());
 
   @override
@@ -54,4 +53,5 @@ class RegisterCubit
         }
     }
   }
+
 }

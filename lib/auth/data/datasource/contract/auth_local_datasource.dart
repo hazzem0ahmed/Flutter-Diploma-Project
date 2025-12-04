@@ -1,5 +1,6 @@
-abstract interface class AuthLocalDatasource{
-
-  Future<void> saveToke(String token);
-
+abstract class AuthLocalDatasource {
+  Future<void> saveToken(String token);
+  Future<String?> getToken();
+  Future<void> clearToken();
+  Future<String?> getSavedToken();
 }
