@@ -80,7 +80,7 @@ class OnBoarding2 extends StatelessWidget {
                   const SizedBox(height: 20),
                   ElevatedButtonWidget(
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, OnBoarding3.routeName);
+                      //Navigator.pushReplacementNamed(context, OnBoarding3.routeName);
                     },
                     text: 'Next',
                   ),

@@ -8,14 +8,11 @@ import 'firebase_options.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'on_boarding/on_boarding.dart';
 
-
-
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-void main() {
   runApp(
     BlocProvider<LanguageViewModel>(
       create: (context) => LanguageViewModel(),
@@ -37,16 +34,11 @@ class MoviesApp extends StatelessWidget {
           locale: state.locale,
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
-routes: {
-  OnBoarding.routeName :( _)=>OnBoarding(),
-},
- initialRoute: OnBoarding.routeName,
-
-
           routes: {
+            OnBoarding.routeName: (_) => OnBoarding(),
             RegisterScreen.routeName: (context) => RegisterScreen(),
           },
-          initialRoute: RegisterScreen.routeName,
+          initialRoute: OnBoarding.routeName,
         );
       },
     );

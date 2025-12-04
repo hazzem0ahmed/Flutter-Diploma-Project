@@ -28,7 +28,7 @@ class _GoogleButtonDesignState extends State<GoogleButtonDesign> {
           final user = await FirebaseAuthServices().googleSignIn();
 
           if (user != null) {
-            Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+            //Navigator.pushReplacementNamed(context, HomeScreen.routeName);
           }
         } on FirebaseAuthException catch (e) {
           Text(e.message!);

@@ -15,5 +15,11 @@ abstract class AppAsset {
   static const String gamerImage1= "assets/images/gamer(1).png.png";
   static const String gamerImage2= "assets/images/gamer(1)..png.png";
   static const String gamerImage3= "assets/images/gamer (1).png.png";
+  static const String videoIcon= "assets/images/video.png";
+  static const String watchNow= "assets/images/Watch Now.png";
+  static const String availableNow= "assets/images/Available Now.png";
+
+
+
 
 }

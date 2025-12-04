@@ -135,39 +135,27 @@ abstract class AppLocalizations {
   String get discoverMovies;
 
   /// No description provided for @title1.
-  /// No description provided for @registerTitle.
   ///
   /// In en, this message translates to:
-  /// **'Register'**
-  String get registerTitle;
   /// **'Explore a vast collection of movies in all\n qualities and genres. Find your next \n favorite film with ease.'**
   String get title1;
 
-  /// No description provided for @avatar.
   /// No description provided for @next.
   ///
   /// In en, this message translates to:
-  /// **'Avatar'**
-  String get avatar;
   /// **'Next'**
   String get next;
 
-  /// No description provided for @name.
   /// No description provided for @exploreAllGenres.
   ///
   /// In en, this message translates to:
-  /// **'Name'**
-  String get name;
   /// **'Explore All Genres'**
   String get exploreAllGenres;
 
-  /// No description provided for @email.
   /// No description provided for @title2.
   ///
   /// In en, this message translates to:
-  /// **'Email'**
-  String get email;
-  /// **'Discover movies from every genre, in all\\n available qualities. Find something new\\n and exciting to watch every day.'**
+  /// **'Discover movies from every genre, in all\n available qualities. Find something new\n and exciting to watch every day.'**
   String get title2;
 
   /// No description provided for @back.
@@ -175,47 +163,32 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Back'**
   String get back;
-  /// **'Password'**
-  String get password;
 
   /// No description provided for @createWatchlists.
-  /// No description provided for @confirmPassword.
   ///
   /// In en, this message translates to:
   /// **'Create Watchlists'**
   String get createWatchlists;
-  /// **'Confirm Password'**
-  String get confirmPassword;
 
   /// No description provided for @title3.
-  /// No description provided for @phoneNumber.
   ///
   /// In en, this message translates to:
   /// **'Save movies to your watchlist to keep\n track of what you want to watch next.\n Enjoy films in various qualities and genres.'**
   String get title3;
-  /// **'Phone Number'**
-  String get phoneNumber;
 
   /// No description provided for @rateReviewandLearn.
-  /// No description provided for @createAccount.
   ///
   /// In en, this message translates to:
   /// **'Rate, Review, and Learn'**
   String get rateReviewandLearn;
-  /// **'Create Account'**
-  String get createAccount;
 
   /// No description provided for @title4.
-  /// No description provided for @alreadyHaveAccount.
   ///
   /// In en, this message translates to:
   /// **'Share your thoughts on the movies\n you\'ve watched. Dive deep into film\n details and help others discover great\n movies with your reviews.'**
   String get title4;
-  /// **'Already Have Account ?'**
-  String get alreadyHaveAccount;
 
   /// No description provided for @startWatchingNow.
-  /// No description provided for @login.
   ///
   /// In en, this message translates to:
   /// **'Start Watching Now'**
@@ -232,6 +205,142 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Login With Google'**
   String get loginWithGoogle;
+
+  /// No description provided for @seeMore.
+  ///
+  /// In en, this message translates to:
+  /// **'See More'**
+  String get seeMore;
+
+  /// No description provided for @action.
+  ///
+  /// In en, this message translates to:
+  /// **'Action'**
+  String get action;
+
+  /// No description provided for @watch.
+  ///
+  /// In en, this message translates to:
+  /// **'Watch'**
+  String get watch;
+
+  /// No description provided for @screenShots.
+  ///
+  /// In en, this message translates to:
+  /// **'Screen Shots'**
+  String get screenShots;
+
+  /// No description provided for @similarMovies.
+  ///
+  /// In en, this message translates to:
+  /// **'Similar Movies'**
+  String get similarMovies;
+
+  /// No description provided for @summary.
+  ///
+  /// In en, this message translates to:
+  /// **'Summary'**
+  String get summary;
+
+  /// No description provided for @movieSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Following the events of Spider-Man No Way Home, Doctor Strange unwittingly casts a forbidden spell that accidentally opens up the multiverse.With help from Wong and Scarlet Witch, Strange confronts various versions of himself as well as teaming up with the young America Chavez while traveling through various realities and working to restore reality as he knows it. Along the way, Strange and his allies realize they must take on a powerful new adversary who seeks to take over the multiverse.—Blazer346'**
+  String get movieSummary;
+
+  /// No description provided for @cast.
+  ///
+  /// In en, this message translates to:
+  /// **'Cast'**
+  String get cast;
+
+  /// No description provided for @genres.
+  ///
+  /// In en, this message translates to:
+  /// **'Genres'**
+  String get genres;
+
+  /// No description provided for @genreAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Action'**
+  String get genreAction;
+
+  /// No description provided for @genreAdventure.
+  ///
+  /// In en, this message translates to:
+  /// **'Adventure'**
+  String get genreAdventure;
+
+  /// No description provided for @genreFantasy.
+  ///
+  /// In en, this message translates to:
+  /// **'Fantasy'**
+  String get genreFantasy;
+
+  /// No description provided for @genreSciFi.
+  ///
+  /// In en, this message translates to:
+  /// **'SCI-Fi'**
+  String get genreSciFi;
+
+  /// No description provided for @genreHorror.
+  ///
+  /// In en, this message translates to:
+  /// **'Horror'**
+  String get genreHorror;
+
+  /// No description provided for @movieTitleExample.
+  ///
+  /// In en, this message translates to:
+  /// **'1917'**
+  String get movieTitleExample;
+
+  /// No description provided for @createAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Account'**
+  String get createAccount;
+
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// No description provided for @password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password;
+
+  /// No description provided for @confirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get confirmPassword;
+
+  /// No description provided for @phoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number'**
+  String get phoneNumber;
+
+  /// No description provided for @alreadyHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account?'**
+  String get alreadyHaveAccount;
+
+  /// No description provided for @login.
+  ///
+  /// In en, this message translates to:
   /// **'Login'**
   String get login;
 }
