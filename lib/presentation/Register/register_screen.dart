@@ -7,6 +7,7 @@ import 'package:movies/presentation/Register/resgister_cubit.dart';
 import 'package:movies/presentation/widgets/language/language_switch.dart';
 import '../../core/app_asset.dart';
 import '../../di/di.dart';
+import '../../features/login/presentation/pages/login_screen.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../network/resources.dart';
 
@@ -60,7 +61,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          leading: const Icon(Icons.arrow_back, color: AppColors.white),
+          leading: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(Icons.arrow_back, color: AppColors.white)),
           title:  Text(
             AppLocalizations.of(context)!.createAccount,
             style: TextStyle(color: AppColors.white),
@@ -71,85 +76,230 @@ class _RegisterScreenState extends State<RegisterScreen> {
           padding: const EdgeInsets.all(18),
           child: Column(
             children: [
-      
               const SizedBox(height: 20),
-      
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // -------- Avatar 1 --------
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedAvatar = 0;
-                      });
-                    },
-                    child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 8),
-                      padding: EdgeInsets.all(3),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: selectedAvatar == 0 ? Colors.blue : Colors.transparent,
-                          width: 3,
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    // -------- Avatar 1 --------
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedAvatar = 0;
+                        });
+                      },
+                      child: Container(
+                        margin: EdgeInsets.symmetric(horizontal: 8),
+                        padding: EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: selectedAvatar == 0 ? Colors.blue : Colors.transparent,
+                            width: 3,
+                          ),
                         ),
-                      ),
-                      child: CircleAvatar(
-                        radius: 35,
-                        backgroundImage: AssetImage(AppAsset.gamerImage3
+                        child: CircleAvatar(
+                          radius: 35,
+                          backgroundImage: AssetImage(AppAsset.avatar1
+                          ),
                         ),
                       ),
                     ),
-                  ),
-      
-                  // -------- Avatar 2 --------
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedAvatar = 1;
-                      });
-                    },
-                    child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 8),
-                      padding: EdgeInsets.all(3),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: selectedAvatar == 1 ? Colors.blue : Colors.transparent,
-                          width: 3,
+                
+                    // -------- Avatar 2 --------
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedAvatar = 1;
+                        });
+                      },
+                      child: Container(
+                        margin: EdgeInsets.symmetric(horizontal: 8),
+                        padding: EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: selectedAvatar == 1 ? Colors.blue : Colors.transparent,
+                            width: 3,
+                          ),
+                        ),
+                        child: CircleAvatar(
+                          radius: 35,
+                          backgroundImage: AssetImage(AppAsset.avatar2),
                         ),
                       ),
-                      child: CircleAvatar(
-                        radius: 35,
-                        backgroundImage: AssetImage(AppAsset.gamerImage1),
-                      ),
                     ),
-                  ),
-      
-                  // -------- Avatar 3 --------
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedAvatar = 2;
-                      });
-                    },
-                    child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 8),
-                      padding: EdgeInsets.all(3),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: selectedAvatar == 2 ? Colors.blue : Colors.transparent,
-                          width: 3,
+                
+                    // -------- Avatar 3 --------
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedAvatar = 2;
+                        });
+                      },
+                      child: Container(
+                        margin: EdgeInsets.symmetric(horizontal: 8),
+                        padding: EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: selectedAvatar == 2 ? Colors.blue : Colors.transparent,
+                            width: 3,
+                          ),
+                        ),
+                        child: CircleAvatar(
+                          radius: 35,
+                          backgroundImage: AssetImage(AppAsset.avatar3),
                         ),
                       ),
-                      child: CircleAvatar(
-                        radius: 35,
-                        backgroundImage: AssetImage(AppAsset.gamerImage2),
+                    ),
+                    // -------- Avatar 4 --------
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedAvatar = 3;
+                        });
+                      },
+                      child: Container(
+                        margin: EdgeInsets.symmetric(horizontal: 8),
+                        padding: EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: selectedAvatar == 0 ? Colors.blue : Colors.transparent,
+                            width: 3,
+                          ),
+                        ),
+                        child: CircleAvatar(
+                          radius: 35,
+                          backgroundImage: AssetImage(AppAsset.avatar4
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                
+                    // -------- Avatar 5 --------
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedAvatar = 4;
+                        });
+                      },
+                      child: Container(
+                        margin: EdgeInsets.symmetric(horizontal: 8),
+                        padding: EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: selectedAvatar == 1 ? Colors.blue : Colors.transparent,
+                            width: 3,
+                          ),
+                        ),
+                        child: CircleAvatar(
+                          radius: 35,
+                          backgroundImage: AssetImage(AppAsset.avatar5),
+                        ),
+                      ),
+                    ),
+                
+                    // -------- Avatar 6 --------
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedAvatar = 5;
+                        });
+                      },
+                      child: Container(
+                        margin: EdgeInsets.symmetric(horizontal: 8),
+                        padding: EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: selectedAvatar == 2 ? Colors.blue : Colors.transparent,
+                            width: 3,
+                          ),
+                        ),
+                        child: CircleAvatar(
+                          radius: 35,
+                          backgroundImage: AssetImage(AppAsset.avatar6),
+                        ),
+                      ),
+                    ),
+                    // -------- Avatar 7 --------
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedAvatar = 6;
+                        });
+                      },
+                      child: Container(
+                        margin: EdgeInsets.symmetric(horizontal: 8),
+                        padding: EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: selectedAvatar == 0 ? Colors.blue : Colors.transparent,
+                            width: 3,
+                          ),
+                        ),
+                        child: CircleAvatar(
+                          radius: 35,
+                          backgroundImage: AssetImage(AppAsset.avatar7
+                          ),
+                        ),
+                      ),
+                    ),
+                
+                    // -------- Avatar 8 --------
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedAvatar = 7;
+                        });
+                      },
+                      child: Container(
+                        margin: EdgeInsets.symmetric(horizontal: 8),
+                        padding: EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: selectedAvatar == 1 ? Colors.blue : Colors.transparent,
+                            width: 3,
+                          ),
+                        ),
+                        child: CircleAvatar(
+                          radius: 35,
+                          backgroundImage: AssetImage(AppAsset.avatar8),
+                        ),
+                      ),
+                    ),
+                
+                    // -------- Avatar 9 --------
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedAvatar = 8;
+                        });
+                      },
+                      child: Container(
+                        margin: EdgeInsets.symmetric(horizontal: 8),
+                        padding: EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: selectedAvatar == 2 ? Colors.blue : Colors.transparent,
+                            width: 3,
+                          ),
+                        ),
+                        child: CircleAvatar(
+                          radius: 35,
+                          backgroundImage: AssetImage(AppAsset.avatar9),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(height: 25),
       
@@ -227,10 +377,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             passwordConfirmationController.text,
                           ),
                         );
+                        Navigator.pushReplacementNamed(context, LoginScreen.routeName);
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.white,
+                      backgroundColor: AppColors.yellow,
                     ),
                     child:
                     state.loginResources.status == Status.loading
@@ -256,12 +407,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   Text(AppLocalizations.of(context)!.alreadyHaveAccount,
                       style: TextStyle(color: AppColors.white)),
                   SizedBox(width: 5),
-                  Text(
-                    AppLocalizations.of(context)!.login,
-                    style: TextStyle(
-                        color: AppColors.white,
-                        fontWeight: FontWeight.bold),
-                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+                    },
+                    child: Text(
+                                        AppLocalizations.of(context)!.login,
+                                        style: TextStyle(
+                    color: AppColors.white,
+                    fontWeight: FontWeight.bold),
+                                      )
+                  )
                 ],
               ),
       

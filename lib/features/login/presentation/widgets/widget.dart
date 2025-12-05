@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies/presentation/screens/tabs/home_screen.dart';
 import '../../../../presentation/Register/register_screen.dart';
 import '../../../../presentation/widgets/elevated_button/elevated_button.dart';
 import '../../../../presentation/widgets/elevated_button/google_button.dart';
@@ -53,7 +54,9 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
           ElevatedButtonWidget(
             text: isLoading ? 'Loading...' : 'Login',
             onPressed: isLoading
-                ? () {}
+                ? () {
+              Navigator.pushReplacementNamed(context, HomeTab.routeName);
+            }
                 : () {
                     loginBloc.add(
                       LoginButtonPressed(
