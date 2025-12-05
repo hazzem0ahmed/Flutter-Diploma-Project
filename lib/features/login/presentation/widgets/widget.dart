@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../presentation/Register/register_screen.dart';
 import '../../../../presentation/widgets/elevated_button/elevated_button.dart';
 import '../../../../presentation/widgets/elevated_button/google_button.dart';
 import '../../domain/bloc/login_bloc.dart';
@@ -73,7 +74,9 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
               ),
 
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, RegisterScreen.routeName);
+                },
                 child: Text(
                   " Create One",
                   style: TextStyle(

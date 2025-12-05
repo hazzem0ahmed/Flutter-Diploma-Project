@@ -6,9 +6,12 @@ import 'package:movies/presentation/widgets/language/language_contract.dart';
 import 'package:movies/presentation/widgets/language/language_vm.dart';
 import 'auth/data/datasource/contract/auth_local_datasource.dart';
 import 'di/service_locator.dart';
+import 'features/login/presentation/pages/login_screen.dart';
 import 'firebase_options.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'on_boarding/on_boarding.dart';
+import 'on_boarding/on_boarding1.dart';
+import 'on_boarding/on_boarding2.dart';
 
 
 void main() async {
@@ -47,15 +50,13 @@ class MoviesApp extends StatelessWidget {
 
           routes: {
             OnBoarding.routeName: (_) => OnBoarding(),
+            OnBoarding1.routeName: (_) => OnBoarding1(),
+            OnBoarding2.routeName: (_) => OnBoarding2(),
+            LoginScreen.routeName: (context) => LoginScreen(),
             RegisterScreen.routeName: (context) => RegisterScreen(),
           },
 
-          // لو في Token → يدخل على OnBoarding أو هوم
-          // لو مفيش Token → يفتح Register
-          initialRoute:
-          token == null || token!.isEmpty
-              ? RegisterScreen.routeName
-              : OnBoarding.routeName,
+          initialRoute: OnBoarding.routeName,
         );
       },
     );
