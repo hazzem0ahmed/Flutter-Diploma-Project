@@ -1,4 +1,22 @@
 {
   "language": "Language",
-  "hazzem": "Hazzem"
+  "hazzem": "Hazzem",
+  "findYourNextFavoriteMovieHere" : "Find Your Next\nFavorite Movie Here",
+  "title" :  "Get access to a huge library of movies \n to suit all tastes. You will surely like it.",
+ "exploreNow" : "Explore Now",
+  "discoverMovies" : "Discover Movies",
+  "title1" :  "Explore a vast collection of movies in all\n qualities and genres. Find your next \n favorite film with ease.",
+  "next" : "Next" ,
+  "exploreAllGenres":"Explore All Genres",
+  "title2" : "Discover movies from every genre, in all\\n available qualities. Find something new\\n and exciting to watch every day.",
+  "back": "Back",
+  "createWatchlists" : "Create Watchlists",
+  "title3" : "Save movies to your watchlist to keep\n track of what you want to watch next.\n Enjoy films in various qualities and genres.",
+  "rateReviewandLearn":"Rate, Review, and Learn",
+  "title4" : "Share your thoughts on the movies\n you've watched. Dive deep into film\n details and help others discover great\n movies with your reviews.",
+  "startWatchingNow": "Start Watching Now",
+  "finish" : "Finish"
+
+
+
 }

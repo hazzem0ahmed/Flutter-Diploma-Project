@@ -109,6 +109,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Hazzem'**
   String get hazzem;
+
+  /// No description provided for @findYourNextFavoriteMovieHere.
+  ///
+  /// In en, this message translates to:
+  /// **'Find Your Next\nFavorite Movie Here'**
+  String get findYourNextFavoriteMovieHere;
+
+  /// No description provided for @title.
+  ///
+  /// In en, this message translates to:
+  /// **'Get access to a huge library of movies \n to suit all tastes. You will surely like it.'**
+  String get title;
+
+  /// No description provided for @exploreNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore Now'**
+  String get exploreNow;
+
+  /// No description provided for @discoverMovies.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover Movies'**
+  String get discoverMovies;
+
+  /// No description provided for @title1.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore a vast collection of movies in all\n qualities and genres. Find your next \n favorite film with ease.'**
+  String get title1;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @exploreAllGenres.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore All Genres'**
+  String get exploreAllGenres;
+
+  /// No description provided for @title2.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover movies from every genre, in all\\n available qualities. Find something new\\n and exciting to watch every day.'**
+  String get title2;
+
+  /// No description provided for @back.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get back;
+
+  /// No description provided for @createWatchlists.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Watchlists'**
+  String get createWatchlists;
+
+  /// No description provided for @title3.
+  ///
+  /// In en, this message translates to:
+  /// **'Save movies to your watchlist to keep\n track of what you want to watch next.\n Enjoy films in various qualities and genres.'**
+  String get title3;
+
+  /// No description provided for @rateReviewandLearn.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate, Review, and Learn'**
+  String get rateReviewandLearn;
+
+  /// No description provided for @title4.
+  ///
+  /// In en, this message translates to:
+  /// **'Share your thoughts on the movies\n you\'ve watched. Dive deep into film\n details and help others discover great\n movies with your reviews.'**
+  String get title4;
+
+  /// No description provided for @startWatchingNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Watching Now'**
+  String get startWatchingNow;
+
+  /// No description provided for @finish.
+  ///
+  /// In en, this message translates to:
+  /// **'Finish'**
+  String get finish;
 }
 
 class _AppLocalizationsDelegate

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:movies/core/app_asset.dart';
 import 'package:movies/core/app_colors.dart';
 
+import '../l10n/generated/app_localizations.dart';
 import '../presentation/widgets/elevated_button/elevated_button.dart';
-import 'on_boarding1.dart';
+import 'on_boarding_final.dart';
 
 class OnBoarding extends StatelessWidget {
   static const String routeName = "/onboarding";
@@ -12,6 +13,7 @@ class OnBoarding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var locale = AppLocalizations.of(context)!;
     return Scaffold(
       backgroundColor: AppColors.black,
       body: Stack(
@@ -44,7 +46,7 @@ class OnBoarding extends StatelessWidget {
             child: Column(
               children: [
                  Text(
-                  "Find Your Next\nFavorite Movie Here",
+                  locale.findYourNextFavoriteMovieHere,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: AppColors.white,
@@ -53,7 +55,7 @@ class OnBoarding extends StatelessWidget {
                 ),
                  SizedBox(height: 16),
                  Text(
-                  "Get access to a huge library of movies \n to suit all tastes. You will surely like it.",
+                  locale.title,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: AppColors.white,
@@ -61,7 +63,7 @@ class OnBoarding extends StatelessWidget {
                 ),
                 SizedBox(height: 16),
                 ElevatedButtonWidget(onPressed: (){
-                  Navigator.pushReplacementNamed(context, OnBoarding1.routeName);
+                  Navigator.pushReplacementNamed(context, OnBoardingFinal.routeName);
                 },
                   text: 'Explore Now',)
               ],
