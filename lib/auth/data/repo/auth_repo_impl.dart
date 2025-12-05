@@ -1,17 +1,13 @@
-import 'package:dio/dio.dart';
-import 'package:injectable/injectable.dart';
-
 import '../../../network/results.dart';
 import '../../domain/repository/auth_repository.dart';
 import '../datasource/contract/auth_local_datasource.dart';
 import '../datasource/contract/auth_remote_datasource.dart';
 import '../models/auth_response_dto.dart';
 
-@Injectable(as: AuthRepo)
 class AuthRepoImpl implements AuthRepo {
   AuthRemoteDatasource remoteDatasource;
   AuthLocalDatasource localDatasource;
-  AuthRepoImpl(this.remoteDatasource , this.localDatasource);
+  AuthRepoImpl(this.remoteDatasource, this.localDatasource);
 
   @override
   Future<Results<String>> signUp(
@@ -29,9 +25,9 @@ class AuthRepoImpl implements AuthRepo {
     return switch (response) {
       Success<AuthResponseDto>() => Success(response.data?.token),
       Failure<AuthResponseDto>() => Failure(
-        response.exception,
-        response.message,
-      ),
+          response.exception,
+          response.message,
+        ),
     };
   }
 
@@ -40,5 +36,4 @@ class AuthRepoImpl implements AuthRepo {
     // TODO: implement login
     throw UnimplementedError();
   }
-
 }

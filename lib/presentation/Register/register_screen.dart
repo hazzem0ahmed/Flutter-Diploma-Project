@@ -6,7 +6,7 @@ import 'package:movies/presentation/Register/resgister_contract.dart';
 import 'package:movies/presentation/Register/resgister_cubit.dart';
 import 'package:movies/presentation/widgets/language/language_switch.dart';
 import '../../core/app_asset.dart';
-import '../../di/di.dart';
+import '../../di/modules/service_locator.dart';
 import '../../features/login/presentation/pages/login_screen.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../network/resources.dart';
