@@ -1,36 +1,42 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:movies/presentation/Register/register_screen.dart';
 import 'package:movies/presentation/screens/HomeScreen.dart';
 import 'package:movies/presentation/screens/splash_screen.dart';
 import 'package:movies/presentation/widgets/language/language_contract.dart';
 import 'package:movies/presentation/widgets/language/language_vm.dart';
+import 'auth/data/datasource/contract/auth_local_datasource.dart';
+import 'di/modules/service_locator.dart';
 import 'features/login/presentation/pages/login_screen.dart';
+import 'firebase_options.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'on_boarding/on_boarding_final.dart';
 
-// This is just a placeholder. You must get your own from the Google Cloud Console.
-const String webClientId = 'YOUR_WEB_CLIENT_ID.apps.googleusercontent.com';
-
-GoogleSignIn googleSignIn = GoogleSignIn(
-  clientId: kIsWeb ? webClientId : null,
-);
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  configureDependenciesGetIt();
+
+  final authLocal = getIt<AuthLocalDatasource>();
+  final String? savedToken = await authLocal.getSavedToken();
+
   runApp(
     BlocProvider<LanguageViewModel>(
       create: (context) => LanguageViewModel(),
-      child: const MoviesApp(),
+      child: MoviesApp(token: savedToken),
     ),
   );
 }
 
 class MoviesApp extends StatelessWidget {
-  const MoviesApp({super.key});
+  const MoviesApp({super.key, this.token});
+  final String? token;
 
   @override
   Widget build(BuildContext context) {
@@ -43,12 +49,14 @@ class MoviesApp extends StatelessWidget {
           supportedLocales: AppLocalizations.supportedLocales,
 
           routes: {
+            SplashScreen.routeName: (_) => SplashScreen(),
             OnBoardingFinal.routeName: (_) => OnBoardingFinal(),
-            LoginScreen.routeName: (context) => const LoginScreen(),
-            RegisterScreen.routeName: (context) => const RegisterScreen(),
-            SplashScreen.routeName: (context) => const SplashScreen(),
-            HomeScreen.routeName: (context) =>  HomeScreen(),
+            LoginScreen.routeName: (context) => LoginScreen(),
+            RegisterScreen.routeName: (context) => RegisterScreen(),
+            HomeScreen.routeName: (_) => HomeScreen(),
+
           },
+
           initialRoute: SplashScreen.routeName,
         );
       },
