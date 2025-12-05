@@ -5,7 +5,7 @@ import '../../../core/app_colors.dart';
 class TextButtonWidget extends StatelessWidget {
   final String text;
   final FontWeight fontWeight;
-  TextButtonWidget({super.key,required this.text,this.fontWeight = FontWeight.w400,});
+  const TextButtonWidget({super.key,required this.text,this.fontWeight = FontWeight.w400,});
 
   @override
   Widget build(BuildContext context) {

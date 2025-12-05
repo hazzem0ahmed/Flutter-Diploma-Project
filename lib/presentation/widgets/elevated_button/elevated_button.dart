@@ -6,35 +6,42 @@ class ElevatedButtonWidget extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
 
-  ElevatedButtonWidget({super.key,required this.text,required this.onPressed});
+  const ElevatedButtonWidget({
+    super.key,
+    required this.text,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height*0.055,
+      height: MediaQuery.of(context).size.height * 0.055,
       width: double.infinity,
       child: ElevatedButton(
-          onPressed: onPressed,
-          style: ElevatedButton.styleFrom(
-            elevation: 0,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
-            ),
-
-            backgroundColor: AppColors.yellow,
-            foregroundColor: AppColors.black,
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
           ),
-         child: Row(
-           mainAxisAlignment: MainAxisAlignment.center,
-           children: [
-             Text(text,style: TextStyle(
-               fontWeight: FontWeight.w600,
-               fontSize: 20,
-               color: AppColors.black,
-             ),),
-           ],
-         )),
-    );
-    }
-  }
 
+          backgroundColor: AppColors.yellow,
+          foregroundColor: AppColors.black,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              text,
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 20,
+                color: AppColors.black,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

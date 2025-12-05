@@ -64,4 +64,77 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get finish => 'إنهاء';
+
+  @override
+  String get loginWithGoogle => 'تسجيل الدخول بإستخدام جوجل';
+
+  @override
+  String get seeMore => 'عرض المزيد';
+
+  @override
+  String get action => 'أكشن';
+
+  @override
+  String get watch => 'مشاهدة';
+
+  @override
+  String get screenShots => 'لقطات شاشة';
+
+  @override
+  String get similarMovies => 'أفلام مشابهة';
+
+  @override
+  String get summary => 'ملخص';
+
+  @override
+  String get movieSummary =>
+      'بعد أحداث Spider-Man No Way Home، يلقي Doctor Strange بطريق الخطأ تعويذة محظورة تفتح الأكوان المتعددة. بمساعدة Wong و Scarlet Witch، يواجه Strange نسخًا مختلفة من نفسه بالإضافة إلى التعاون مع الشابة America Chavez أثناء سفره عبر حقائق مختلفة والعمل على استعادة الواقع كما يعرفه. على طول الطريق، يدرك Strange وحلفاؤه أنه يجب عليهم مواجهة خصم جديد قوي يسعى للسيطرة على الأكوان المتعددة. - Blazer346';
+
+  @override
+  String get cast => 'طاقم العمل';
+
+  @override
+  String get genres => 'الأنواع';
+
+  @override
+  String get genreAction => 'أكشن';
+
+  @override
+  String get genreAdventure => 'مغامرة';
+
+  @override
+  String get genreFantasy => 'خيال';
+
+  @override
+  String get genreSciFi => 'خيال علمي';
+
+  @override
+  String get genreHorror => 'رعب';
+
+  @override
+  String get movieTitleExample => '١٩١٧';
+
+  @override
+  String get createAccount => 'إنشاء حساب';
+
+  @override
+  String get name => 'الاسم';
+
+  @override
+  String get email => 'البريد الإلكتروني';
+
+  @override
+  String get password => 'كلمة المرور';
+
+  @override
+  String get confirmPassword => 'تأكيد كلمة المرور';
+
+  @override
+  String get phoneNumber => 'رقم الهاتف';
+
+  @override
+  String get alreadyHaveAccount => 'هل لديك حساب بالفعل؟';
+
+  @override
+  String get login => 'تسجيل الدخول';
 }

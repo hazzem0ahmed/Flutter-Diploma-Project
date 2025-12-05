@@ -40,7 +40,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get title2 =>
-      'Discover movies from every genre, in all\\n available qualities. Find something new\\n and exciting to watch every day.';
+      'Discover movies from every genre, in all\n available qualities. Find something new\n and exciting to watch every day.';
 
   @override
   String get back => 'Back';
@@ -64,4 +64,77 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get finish => 'Finish';
+
+  @override
+  String get loginWithGoogle => 'Login With Google';
+
+  @override
+  String get seeMore => 'See More';
+
+  @override
+  String get action => 'Action';
+
+  @override
+  String get watch => 'Watch';
+
+  @override
+  String get screenShots => 'Screen Shots';
+
+  @override
+  String get similarMovies => 'Similar Movies';
+
+  @override
+  String get summary => 'Summary';
+
+  @override
+  String get movieSummary =>
+      'Following the events of Spider-Man No Way Home, Doctor Strange unwittingly casts a forbidden spell that accidentally opens up the multiverse.With help from Wong and Scarlet Witch, Strange confronts various versions of himself as well as teaming up with the young America Chavez while traveling through various realities and working to restore reality as he knows it. Along the way, Strange and his allies realize they must take on a powerful new adversary who seeks to take over the multiverse.—Blazer346';
+
+  @override
+  String get cast => 'Cast';
+
+  @override
+  String get genres => 'Genres';
+
+  @override
+  String get genreAction => 'Action';
+
+  @override
+  String get genreAdventure => 'Adventure';
+
+  @override
+  String get genreFantasy => 'Fantasy';
+
+  @override
+  String get genreSciFi => 'SCI-Fi';
+
+  @override
+  String get genreHorror => 'Horror';
+
+  @override
+  String get movieTitleExample => '1917';
+
+  @override
+  String get createAccount => 'Create Account';
+
+  @override
+  String get name => 'Name';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get password => 'Password';
+
+  @override
+  String get confirmPassword => 'Confirm Password';
+
+  @override
+  String get phoneNumber => 'Phone Number';
+
+  @override
+  String get alreadyHaveAccount => 'Already have an account?';
+
+  @override
+  String get login => 'Login';
 }
