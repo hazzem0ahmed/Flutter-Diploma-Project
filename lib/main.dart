@@ -12,6 +12,7 @@ import 'l10n/generated/app_localizations.dart';
 import 'on_boarding/on_boarding.dart';
 import 'on_boarding/on_boarding1.dart';
 import 'on_boarding/on_boarding2.dart';
+import 'on_boarding/on_boarding_final.dart';
 
 
 void main() async {
@@ -50,8 +51,7 @@ class MoviesApp extends StatelessWidget {
 
           routes: {
             OnBoarding.routeName: (_) => OnBoarding(),
-            OnBoarding1.routeName: (_) => OnBoarding1(),
-            OnBoarding2.routeName: (_) => OnBoarding2(),
+            OnBoardingFinal.routeName: (_) => OnBoardingFinal(),
             LoginScreen.routeName: (context) => LoginScreen(),
             RegisterScreen.routeName: (context) => RegisterScreen(),
           },
