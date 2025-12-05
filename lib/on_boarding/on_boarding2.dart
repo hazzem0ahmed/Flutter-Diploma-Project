@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies/core/app_asset.dart';
 import 'package:movies/core/app_colors.dart';
 import 'package:movies/on_boarding/on_boarding1.dart';
+import 'package:movies/on_boarding/on_boarding_final.dart';
 import '../features/login/presentation/pages/login_screen.dart';
 import '../presentation/widgets/elevated_button/elevated_button.dart';
 import '../presentation/widgets/elevated_button/outlined_button.dart';
@@ -81,7 +82,7 @@ class OnBoarding2 extends StatelessWidget {
                   const SizedBox(height: 20),
                   ElevatedButtonWidget(
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+                      Navigator.pushReplacementNamed(context, OnBoardingFinal.routeName);
                     },
                     text: 'Next',
                   ),

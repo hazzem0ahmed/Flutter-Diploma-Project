@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/presentation/screens/tabs/home_screen.dart';
+import 'package:movies/presentation/widgets/language/language_switch.dart';
+import '../../../../l10n/generated/app_localizations.dart';
 import '../../../../presentation/Register/register_screen.dart';
 import '../../../../presentation/widgets/elevated_button/elevated_button.dart';
 import '../../../../presentation/widgets/elevated_button/google_button.dart';
@@ -35,16 +37,20 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
 
           Image.asset('assets/images/app_logo.png', height: 200, width: 200),
           SizedBox(height:20),
-          _buildInputField(_emailController, 'Email', Icons.email, false),
+          _buildInputField(_emailController,
+              AppLocalizations.of(context)!.email,
+               Icons.email, false),
           SizedBox(height: 16),
-          _buildInputField(_passwordController, 'Password', Icons.lock, true),
+          _buildInputField(_passwordController,
+              AppLocalizations.of(context)!.password,
+               Icons.lock, true),
 
           Align(
             alignment: Alignment.centerRight,
             child: TextButton(
               onPressed: () {},
               child: Text(
-                'Forget Password ?',
+                AppLocalizations.of(context)!.forgetPassword,
                 style: TextStyle(color: Color(0xfff6BD00), fontSize: 12),
               ),
             ),
@@ -52,7 +58,8 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
           SizedBox(height: 10),
 
           ElevatedButtonWidget(
-            text: isLoading ? 'Loading...' : 'Login',
+            text: isLoading ? 'Loading...'
+                :    AppLocalizations.of(context)!.login,
             onPressed: isLoading
                 ? () {
               Navigator.pushReplacementNamed(context, HomeTab.routeName);
@@ -72,7 +79,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                "Don't Have Account ?",
+                AppLocalizations.of(context)!.dontHaveAccount,
                 style: TextStyle(color: Colors.white),
               ),
 
@@ -81,7 +88,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                   Navigator.pushReplacementNamed(context, RegisterScreen.routeName);
                 },
                 child: Text(
-                  " Create One",
+                  AppLocalizations.of(context)!.createAccount,
                   style: TextStyle(
                     color: Color(0xfff6BD00),
                     fontWeight: FontWeight.bold,
@@ -100,9 +107,12 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
             width: double.infinity,
             child: GoogleButtonDesign(),
           ),
-        ],
+      SizedBox(height: 16,),
+      LanguageSwitch()
+      ],
       ),
     );
+
   }
 
   Widget _buildInputField(

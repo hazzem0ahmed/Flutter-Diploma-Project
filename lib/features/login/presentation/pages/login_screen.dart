@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../presentation/widgets/language/language_switch.dart';
 import '../../domain/bloc/login_bloc.dart';
 import '../../domain/bloc/login_state.dart';
 import '../widgets/widget.dart';
@@ -54,5 +55,7 @@ class LoginView extends StatelessWidget {
         },
       ),
     );
+    LanguageSwitch();
+
   }
 }
