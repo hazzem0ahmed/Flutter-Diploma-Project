@@ -4,24 +4,25 @@ import 'package:movies/core/app_colors.dart';
 import 'package:movies/core/app_extensions.dart';
 import 'package:movies/core/padding_extension.dart';
 import 'package:movies/core/text_theme.dart';
+import 'package:movies/features/data/moviesList/movies_list_data.dart';
 import 'package:movies/presentation/widgets/cast%20card/cast_card.dart';
 import 'package:movies/presentation/widgets/movie_crauosal_card.dart';
 import 'package:movies/presentation/widgets/movie_details/movie_details.dart';
 
-class DetailsScreen extends StatelessWidget {
+class DetailsScreen extends StatefulWidget {
   static const String routeName = "/details";
 
   const DetailsScreen({super.key});
 
   @override
+  State<DetailsScreen> createState() => _DetailsScreenState();
+}
+
+class _DetailsScreenState extends State<DetailsScreen> {
+  @override
   Widget build(BuildContext context) {
-    List<String> genres = [
-      context.locale.genreAction,
-      context.locale.genreAdventure,
-      context.locale.genreFantasy,
-      context.locale.genreSciFi,
-      context.locale.genreHorror,
-    ];
+    final movie = ModalRoute.of(context)!.settings.arguments as Movies;
+
     return Scaffold(
       backgroundColor: AppColors.black,
       appBar: AppBar(backgroundColor: AppColors.black),
@@ -35,8 +36,9 @@ class DetailsScreen extends StatelessWidget {
                 height: context.spaceHeight * 0.7,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(AppAsset.onBoarding5Image),
+                    image: NetworkImage(movie.largeCoverImage??""),
                     fit: BoxFit.cover,
+                    onError: (_, _) => const Icon(Icons.error),
                   ),
                 ),
                 child: Container(
@@ -54,15 +56,13 @@ class DetailsScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Image.asset(AppAsset.videoIcon),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Text(
-                      "1917",
-                      style: context.text.titleLarge!.copyWith(
-                        color: AppColors.white,
-                      ),
-                    ).withPaddingAll(8),
-                  ),
+                  Text(
+                   movie.titleLong??"",
+                    style: context.text.titleLarge!.copyWith(
+                      color: AppColors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ).withPaddingAll(8),
                 ],
               ),
             ],
@@ -85,9 +85,9 @@ class DetailsScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              MovieDetailsDesign("15", Icons.favorite),
-              MovieDetailsDesign("90", Icons.watch_later),
-              MovieDetailsDesign("7.6", Icons.star),
+              MovieDetailsDesign("N/A", Icons.favorite),
+              MovieDetailsDesign(movie.runtime?.toString()??"N/A", Icons.watch_later),
+              MovieDetailsDesign(movie.rating?.toString()??"N/A", Icons.star),
             ],
           ),
           SizedBox(height: context.spaceHeight * 0.06),
@@ -124,19 +124,20 @@ class DetailsScreen extends StatelessWidget {
             ),
             textAlign: TextAlign.start,
           ).withPaddingAll(8),
-          GridView.builder(
-            padding: context.withPadding(8),
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: 4,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 5,
-              mainAxisSpacing: 5,
-              childAspectRatio: 189 / 279,
-            ),
-            itemBuilder: (context, index) => MovieCarouselCard(),
-          ),
+          //todo here isMovie Suggestions from movie suggestions details api
+          // GridView.builder(
+          //   padding: context.withPadding(8),
+          //   shrinkWrap: true,
+          //   physics: const NeverScrollableScrollPhysics(),
+          //   itemCount: 4,
+          //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          //     crossAxisCount: 2,
+          //     crossAxisSpacing: 5,
+          //     mainAxisSpacing: 5,
+          //     childAspectRatio: 189 / 279,
+          //   ),
+          //   itemBuilder: (context, index) => MovieCarouselCard(),
+          // ),
           SizedBox(height: context.spaceHeight * 0.03),
           Text(
             context.locale.summary,
@@ -148,7 +149,7 @@ class DetailsScreen extends StatelessWidget {
           ).withPaddingAll(8),
           SizedBox(height: context.spaceHeight * 0.01),
           Text(
-            context.locale.movieSummary,
+            movie.descriptionFull??"",
             style: context.text.bodyMedium!.copyWith(
               color: AppColors.white,
               fontWeight: FontWeight.w400,
@@ -180,7 +181,7 @@ class DetailsScreen extends StatelessWidget {
             padding: context.withPadding(8),
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: 5,
+            itemCount: movie.genres?.length ?? 0,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
               crossAxisSpacing: 10,
@@ -189,13 +190,13 @@ class DetailsScreen extends StatelessWidget {
             ),
             itemBuilder: (context, index) => Container(
               decoration: BoxDecoration(
-                color: Color(0xFF282A28),
+                color: const Color(0xFF282A28),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Align(
                 alignment: Alignment.center,
                 child: Text(
-                  genres[index],
+                  movie.genres![index],
                   style: context.text.titleMedium!.copyWith(
                     color: AppColors.white,
                     fontWeight: FontWeight.w700,

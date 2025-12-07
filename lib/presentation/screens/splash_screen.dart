@@ -4,7 +4,7 @@ import 'package:movies/auth/data/datasource/contract/auth_local_datasource.dart'
 import 'package:movies/core/app_asset.dart';
 import 'package:movies/di/modules/service_locator.dart';
 import 'package:movies/firebase_options.dart';
-import 'package:movies/presentation/screens/HomeScreen.dart';
+import 'package:movies/presentation/screens/home_screen.dart';
 import '../../on_boarding/on_boarding_final.dart';
 
 class SplashScreen extends StatefulWidget {

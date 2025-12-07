@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/presentation/screens/tabs/explore_tab.dart';
-import 'package:movies/presentation/screens/tabs/home_screen.dart';
+import 'package:movies/presentation/screens/tabs/homeTab/home_tab.dart';
 import 'package:movies/presentation/screens/tabs/profile_tab.dart';
 import 'package:movies/presentation/screens/tabs/search_tab.dart';
 
@@ -57,19 +57,19 @@ class HomeScreen extends StatelessWidget {
                   unselectedItemColor: Colors.white,
                   items: const [
                     BottomNavigationBarItem(
-                      icon: ImageIcon(AssetImage('assets/icons/homeTab.png')),
+                      icon: ImageIcon(AssetImage('assets/images/homeTab.png')),
                       label: '',
                     ),
                     BottomNavigationBarItem(
-                      icon: ImageIcon(AssetImage('assets/icons/searchTab.png')),
+                      icon: ImageIcon(AssetImage('assets/images/searchTab.png')),
                       label: '',
                     ),
                     BottomNavigationBarItem(
-                      icon: ImageIcon(AssetImage('assets/icons/Vector.png')),
+                      icon: ImageIcon(AssetImage('assets/images/Vector.png')),
                       label: '',
                     ),
                     BottomNavigationBarItem(
-                      icon: ImageIcon(AssetImage('assets/icons/Profiel.png')),
+                      icon: ImageIcon(AssetImage('assets/images/Profiel.png')),
                       label: '',
                     ),
                   ],

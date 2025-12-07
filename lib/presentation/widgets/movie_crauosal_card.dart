@@ -1,47 +1,80 @@
 import 'package:flutter/material.dart';
-
-import '../../core/app_asset.dart';
 import '../../core/app_colors.dart';
 import '../../core/app_extensions.dart';
-import '../../core/padding_extension.dart';
+import '../../features/data/moviesList/movies_list_data.dart';
 
 class MovieCarouselCard extends StatelessWidget {
-  const MovieCarouselCard({super.key});
+  final Movies movie;
+  const MovieCarouselCard({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            image: DecorationImage(
-              image: AssetImage(AppAsset.onBoarding5Image),
-            ),
-          ),
-        ),
-        Container(
-          padding: context.withPadding(3),
-          decoration: BoxDecoration(color: AppColors.black.withAlpha(250),
-            borderRadius: BorderRadius.circular(10),),
-          width: context.spaceWidth * 0.12,
-          height: context.spaceHeight * 0.035,
-          child: Row(
-            children: [
-              Text(
-                "7.7",
-                style: context.text.bodyMedium!.copyWith(
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          if (movie.largeCoverImage != null && movie.largeCoverImage!.isNotEmpty)
+            Image.network(
+              movie.largeCoverImage!,
+              fit: BoxFit.cover,
+              loadingBuilder: (context, child, loadingProgress) {
+                if (loadingProgress == null) return child;
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
+              errorBuilder: (context, error, stackTrace) {
+                return const Center(
+                  child: Icon(
+                    Icons.movie_creation_outlined,
                     color: Colors.white,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 16
+                    size: 50,
+                  ),
+                );
+              },
+            )
+          else
+            Container(
+              color: Colors.grey[800],
+              child: const Center(
+                child: Icon(
+                  Icons.movie_creation_outlined,
+                  color: Colors.white,
+                  size: 50,
                 ),
               ),
-              Icon(Icons.star, color: Colors.yellow),
-            ],
+            ),
+
+
+          Positioned(
+            top: 9,
+            left: 9,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              decoration: BoxDecoration(
+                color: AppColors.black.withAlpha(90),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    movie.rating?.toStringAsFixed(2) ?? 'N/A',
+                    style: context.text.bodyMedium!.copyWith(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                    ),
+                  ),
+                  const SizedBox(width: 4),
+                  const Icon(Icons.star, color: Colors.yellow, size: 16),
+                ],
+              ),
+            ),
           ),
-        ).withPaddingAll(9),
-      ],
+        ],
+      ),
     );
   }
 }

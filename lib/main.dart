@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:movies/presentation/Register/register_screen.dart';
-import 'package:movies/presentation/screens/HomeScreen.dart';
+import 'package:movies/presentation/screens/details_screen/details_screen.dart';
+import 'package:movies/presentation/screens/home_screen.dart';
 import 'package:movies/presentation/screens/splash_screen.dart';
 import 'package:movies/presentation/widgets/language/language_contract.dart';
 import 'package:movies/presentation/widgets/language/language_vm.dart';
@@ -48,6 +49,7 @@ class MoviesApp extends StatelessWidget {
             RegisterScreen.routeName: (context) => const RegisterScreen(),
             SplashScreen.routeName: (context) => const SplashScreen(),
             HomeScreen.routeName: (context) =>  HomeScreen(),
+            DetailsScreen.routeName: (context) => const DetailsScreen(),
           },
           initialRoute: SplashScreen.routeName,
         );

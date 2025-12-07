@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/core/app_extensions.dart';
-import 'package:movies/presentation/screens/tabs/home_screen.dart';
+import 'package:movies/presentation/screens/home_screen.dart';
+import 'package:movies/presentation/screens/tabs/homeTab/home_tab.dart';
 import '../../../core/app_asset.dart';
 import '../../../core/app_colors.dart';
 import '../../../firebase/google_auth.dart';
@@ -29,7 +30,7 @@ class _GoogleButtonDesignState extends State<GoogleButtonDesign> {
           final user = await FirebaseAuthServices().googleSignIn();
 
           if (user != null) {
-            Navigator.pushReplacementNamed(context, HomeTab.routeName);
+            Navigator.pushReplacementNamed(context, HomeScreen.routeName);
           }
         } on FirebaseAuthException catch (e) {
           Text(e.message!);
