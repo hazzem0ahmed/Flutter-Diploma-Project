@@ -18,6 +18,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       if (event.email == 'movie@gmail.com' && event.password == 'password') {
         emit(LoginSuccess());
+
       } else {
         emit(const LoginFailure(error: 'Error'));
       }

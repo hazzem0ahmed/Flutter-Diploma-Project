@@ -8,13 +8,13 @@ class AvatarData {
 }
 
 List<AvatarData> avatarList = [
-  AvatarData(AppAsset.gamerImage1, 1),
-  AvatarData(AppAsset.gamerImage1, 2),
-  AvatarData(AppAsset.gamerImage1, 3),
-  AvatarData(AppAsset.gamerImage1, 4),
-  AvatarData(AppAsset.gamerImage1, 5),
-  AvatarData(AppAsset.gamerImage1, 6),
-  AvatarData(AppAsset.gamerImage1, 7),
-  AvatarData(AppAsset.gamerImage1, 8),
-  AvatarData(AppAsset.gamerImage1, 9),
+  AvatarData(AppAsset.avatar1, 1),
+  AvatarData(AppAsset.avatar2, 2),
+  AvatarData(AppAsset.avatar3, 3),
+  AvatarData(AppAsset.avatar4, 4),
+  AvatarData(AppAsset.avatar5, 5),
+  AvatarData(AppAsset.avatar6, 6),
+  AvatarData(AppAsset.avatar7, 7),
+  AvatarData(AppAsset.avatar8, 8),
+  AvatarData(AppAsset.avatar9, 9),
 ];

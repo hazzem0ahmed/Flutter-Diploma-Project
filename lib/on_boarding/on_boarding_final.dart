@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/core/app_asset.dart';
 import 'package:movies/core/app_colors.dart';
+import 'package:movies/features/login/presentation/pages/login_screen.dart';
 import 'package:movies/on_boarding/widget/on_boarding_temp.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -154,7 +155,7 @@ class _OnBoardingFinalState extends State<OnBoardingFinal> {
                                 curve: Curves.easeOut,
                               );
                             } else {
-                              Navigator.pushReplacementNamed(context, "/home");
+                              Navigator.pushReplacementNamed(context, LoginScreen.routeName);
                             }
                           },
                           style: ElevatedButton.styleFrom(

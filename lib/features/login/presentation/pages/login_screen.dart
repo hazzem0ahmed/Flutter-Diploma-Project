@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../domain/bloc/login_bloc.dart';
 import '../../domain/bloc/login_state.dart';
 import '../widgets/widget.dart';
@@ -12,9 +11,12 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xff121312),
-      body: Center(child: SingleChildScrollView(child: LoginView())),
+    return BlocProvider(
+      create: (context)=> LoginBloc(),
+      child: Scaffold(
+        backgroundColor: Color(0xff121312),
+        body: Center(child: SingleChildScrollView(child: LoginView())),
+      ),
     );
   }
 }
@@ -51,5 +53,7 @@ class LoginView extends StatelessWidget {
         },
       ),
     );
+
+
   }
 }

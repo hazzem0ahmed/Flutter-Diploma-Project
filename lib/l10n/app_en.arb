@@ -39,5 +39,8 @@
   "confirmPassword": "Confirm Password",
   "phoneNumber": "Phone Number",
   "alreadyHaveAccount": "Already have an account?",
-  "login": "Login"
+  "login": "Login",
+  "dontHaveAccount": "dont Have Account",
+  "forgetPassword": "forget Password"
+
 }

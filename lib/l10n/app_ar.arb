@@ -39,5 +39,7 @@
   "confirmPassword": "تأكيد كلمة المرور",
   "phoneNumber": "رقم الهاتف",
   "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
-  "login": "تسجيل الدخول"
+  "login": "تسجيل الدخول",
+  "dontHaveAccount" : "ليس لدي حساب",
+  "forgetPassword": "نسيت كلمة المرور"
 }
