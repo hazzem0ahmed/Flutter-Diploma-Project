@@ -10,10 +10,11 @@ import 'package:movies/presentation/screens/splash_screen.dart';
 import 'package:movies/presentation/widgets/language/language_contract.dart';
 import 'package:movies/presentation/widgets/language/language_vm.dart';
 import 'features/login/presentation/pages/login_screen.dart';
+import 'firebase_options.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'on_boarding/on_boarding_final.dart';
 
-// This is just a placeholder. You must get your own from the Google Cloud Console.
+
 const String webClientId = 'YOUR_WEB_CLIENT_ID.apps.googleusercontent.com';
 
 GoogleSignIn googleSignIn = GoogleSignIn(
@@ -21,7 +22,13 @@ GoogleSignIn googleSignIn = GoogleSignIn(
 );
 
 void main() async {
+
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(
     BlocProvider<LanguageViewModel>(
       create: (context) => LanguageViewModel(),

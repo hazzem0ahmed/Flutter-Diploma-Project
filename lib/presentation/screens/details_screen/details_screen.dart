@@ -24,19 +24,39 @@ class _DetailsScreenState extends State<DetailsScreen> {
     final movie = ModalRoute.of(context)!.settings.arguments as Movies;
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
       backgroundColor: AppColors.black,
-      appBar: AppBar(backgroundColor: AppColors.black),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        foregroundColor: AppColors.white,
+        elevation: 0,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios_new, size: 50),
+        ),
+        actions: [
+          GestureDetector(
+            onTap: () {
+              //todo
+            },
+            child: Icon(Icons.bookmark_outlined, size: 50).withPaddingAll(8),
+          ),
+        ],
+      ),
       body: ListView(
+        padding: EdgeInsets.only(top: 8, bottom: 8, right: 8, left: 8),
         children: [
           Stack(
             alignment: Alignment.center,
             children: [
               Container(
                 width: double.infinity,
-                height: context.spaceHeight * 0.7,
+                height: context.spaceHeight * 0.8,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: NetworkImage(movie.largeCoverImage??""),
+                    image: NetworkImage(movie.largeCoverImage ?? ""),
                     fit: BoxFit.cover,
                     onError: (_, _) => const Icon(Icons.error),
                   ),
@@ -44,7 +64,10 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 child: Container(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [AppColors.black, AppColors.black.withAlpha(50)],
+                      colors: [
+                        AppColors.black.withAlpha(90),
+                        AppColors.black.withAlpha(200),
+                      ],
                       begin: Alignment.bottomCenter,
                       end: Alignment.topCenter,
                     ),
@@ -57,7 +80,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 children: [
                   Image.asset(AppAsset.videoIcon),
                   Text(
-                   movie.titleLong??"",
+                    movie.titleLong ?? "",
                     style: context.text.titleLarge!.copyWith(
                       color: AppColors.white,
                     ),
@@ -67,7 +90,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
               ),
             ],
           ),
-          SizedBox(height: context.spaceHeight * 0.06),
+          SizedBox(height: context.spaceHeight * 0.01),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.red,
@@ -86,8 +109,11 @@ class _DetailsScreenState extends State<DetailsScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               MovieDetailsDesign("N/A", Icons.favorite),
-              MovieDetailsDesign(movie.runtime?.toString()??"N/A", Icons.watch_later),
-              MovieDetailsDesign(movie.rating?.toString()??"N/A", Icons.star),
+              MovieDetailsDesign(
+                movie.runtime?.toString() ?? "N/A",
+                Icons.watch_later,
+              ),
+              MovieDetailsDesign(movie.rating?.toString() ?? "N/A", Icons.star),
             ],
           ),
           SizedBox(height: context.spaceHeight * 0.06),
@@ -149,7 +175,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
           ).withPaddingAll(8),
           SizedBox(height: context.spaceHeight * 0.01),
           Text(
-            movie.descriptionFull??"",
+            movie.descriptionFull ?? "",
             style: context.text.bodyMedium!.copyWith(
               color: AppColors.white,
               fontWeight: FontWeight.w400,
@@ -165,8 +191,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
             ),
           ).withPaddingAll(8),
           SizedBox(height: context.spaceHeight * 0.03),
-          Column(
-              children: [CastCard(), CastCard(), CastCard()]),
+          Column(children: [CastCard(), CastCard(), CastCard()]),
           SizedBox(height: context.spaceHeight * 0.03),
           Text(
             context.locale.genres,

@@ -104,10 +104,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
             style: TextStyle(color: Color(0xfff6BD00), height: 2),
           ),
           SizedBox(height: 10),
-          SizedBox(
-            width: double.infinity,
-            child: GoogleButtonDesign(),
-          ),
+          GoogleButtonDesign(),
       SizedBox(height: 16,),
       LanguageSwitch()
       ],

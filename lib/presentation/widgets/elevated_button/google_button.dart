@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/core/app_extensions.dart';
 import 'package:movies/presentation/screens/home_screen.dart';
-import 'package:movies/presentation/screens/tabs/homeTab/home_tab.dart';
 import '../../../core/app_asset.dart';
 import '../../../core/app_colors.dart';
 import '../../../firebase/google_auth.dart';
@@ -24,6 +23,7 @@ class _GoogleButtonDesignState extends State<GoogleButtonDesign> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         backgroundColor: AppColors.yellow,
         foregroundColor: AppColors.black,
+        fixedSize: Size(double.infinity,context.spaceHeight*0.06)
       ),
        onPressed: () async {
         try {
@@ -43,23 +43,20 @@ class _GoogleButtonDesignState extends State<GoogleButtonDesign> {
         }
       },
       child: Row(
+        spacing: 10,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(
-            child: Image.asset(
-              AppAsset.googleIcon,
-              width: context.spaceWidth *0.05 ,
-              height: context.spaceHeight *0.05,
-            ),
+          Image.asset(
+            AppAsset.googleIcon,
+            width: context.spaceWidth *0.05 ,
+            height: context.spaceHeight *0.05,
           ),
-          Expanded(
-            child: Text(context.locale.loginWithGoogle,
-              style: TextStyle(
-                fontSize: 20,
-                color: AppColors.black,
-              )
+          Text(context.locale.loginWithGoogle,
+            style: TextStyle(
+              fontSize: 20,
+              color: AppColors.black,
+            )
 
-            ),
           ),
         ],
       ),
