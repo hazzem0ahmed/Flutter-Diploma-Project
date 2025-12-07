@@ -53,6 +53,7 @@ class MoviesApp extends StatelessWidget {
           },
           initialRoute: SplashScreen.routeName,
         );
+
       },
     );
   }
