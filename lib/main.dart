@@ -12,7 +12,6 @@ import 'features/login/presentation/pages/login_screen.dart';
 import 'firebase_options.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'on_boarding/on_boarding_final.dart';
-
 const String webClientId = 'YOUR_WEB_CLIENT_ID.apps.googleusercontent.com';
 
 
@@ -52,7 +51,7 @@ class MoviesApp extends StatelessWidget {
             HomeScreen.routeName: (context) => HomeScreen(),
             DetailsScreen.routeName: (context) => const DetailsScreen(),
           },
-          initialRoute: SplashScreen.routeName,
+          initialRoute: HomeScreen.routeName,
         );
       },
     );

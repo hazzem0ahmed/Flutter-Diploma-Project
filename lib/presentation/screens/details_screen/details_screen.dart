@@ -5,8 +5,8 @@ import 'package:movies/core/app_extensions.dart';
 import 'package:movies/core/padding_extension.dart';
 import 'package:movies/core/text_theme.dart';
 import 'package:movies/features/data/moviesList/movies_list_data.dart';
+import 'package:movies/presentation/widgets/Watch%20Handler%20Button/Watch_Handler_Button.dart';
 import 'package:movies/presentation/widgets/cast%20card/cast_card.dart';
-import 'package:movies/presentation/widgets/movie_crauosal_card.dart';
 import 'package:movies/presentation/widgets/movie_details/movie_details.dart';
 
 class DetailsScreen extends StatefulWidget {
@@ -19,6 +19,17 @@ class DetailsScreen extends StatefulWidget {
 }
 
 class _DetailsScreenState extends State<DetailsScreen> {
+
+  void onWatchPressed(BuildContext context, Movies movie) {
+    if (movie.ytTrailerCode != null && movie.ytTrailerCode!.isNotEmpty) {
+      final youtubeUrl =
+          "https://www.youtube.com/watch?v=${movie.ytTrailerCode}";
+      WatchHandler.watch(context, youtubeUrl);
+    } else {
+      WatchHandler.watch(context, movie.torrents![0].url!);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final movie = ModalRoute.of(context)!.settings.arguments as Movies;
@@ -97,7 +108,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
               fixedSize: Size(double.infinity, context.spaceHeight * 0.06),
             ),
             onPressed: () {
-              //todo
+              onWatchPressed(context, movie);
             },
             child: Text(
               context.locale.watch,
