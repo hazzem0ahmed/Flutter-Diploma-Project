@@ -23,6 +23,7 @@ void main() async {
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   configureDependenciesGetIt();
+
   runApp(
     BlocProvider<LanguageViewModel>(
       create: (context) => LanguageViewModel(),
@@ -45,14 +46,12 @@ class MoviesApp extends StatelessWidget {
           supportedLocales: AppLocalizations.supportedLocales,
 
           routes: {
-            OnBoardingScreen.routeName: (_) => OnBoardingScreen(),
             OnBoardingFinal.routeName: (_) => OnBoardingFinal(),
             LoginScreen.routeName: (context) => const LoginScreen(),
             RegisterScreen.routeName: (context) => const RegisterScreen(),
             SplashScreen.routeName: (context) => const SplashScreen(),
             HomeScreen.routeName: (context) => HomeScreen(),
             DetailsScreen.routeName: (context) => const DetailsScreen(),
-
           },
           initialRoute: OnBoardingScreen.routeName,
         );
