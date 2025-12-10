@@ -9,9 +9,19 @@ import 'package:movies/presentation/widgets/Watch%20Handler%20Button/Watch_Handl
 import 'package:movies/presentation/widgets/cast%20card/cast_card.dart';
 import 'package:movies/presentation/widgets/movie_details/movie_details.dart';
 
+import '../../../network/api_manager.dart';
+import '../../../network/models/sugg_movie_api.dart';
+import '../../widgets/movie_suggestion_card.dart';
+Future<List<SuggestionMovies>> fetchSuggestedMovies(String id) async {
+  final response = await APIManager().getSuggestedMovies(id);
+  final moviesList = response.data?.movies;
+
+  if (moviesList == null) return [];
+  return moviesList.map((e) => e).toList();
+}
+
 class DetailsScreen extends StatefulWidget {
   static const String routeName = "/details";
-
   const DetailsScreen({super.key});
 
   @override
@@ -162,20 +172,59 @@ class _DetailsScreenState extends State<DetailsScreen> {
             textAlign: TextAlign.start,
           ).withPaddingAll(8),
           //todo here isMovie Suggestions from movie suggestions details api
-          // GridView.builder(
-          //   padding: context.withPadding(8),
-          //   shrinkWrap: true,
-          //   physics: const NeverScrollableScrollPhysics(),
-          //   itemCount: 4,
-          //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          //     crossAxisCount: 2,
-          //     crossAxisSpacing: 5,
-          //     mainAxisSpacing: 5,
-          //     childAspectRatio: 189 / 279,
-          //   ),
-          //   itemBuilder: (context, index) => MovieCarouselCard(),
-          // ),
-          SizedBox(height: context.spaceHeight * 0.03),
+      FutureBuilder<List<SuggestionMovies>>(
+        future: fetchSuggestedMovies(movie.id.toString()),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }
+
+          if (snapshot.hasError) {
+            return Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                "Error Loading Suggestions",
+                style: TextStyle(color: Colors.red),
+              ),
+            );
+          }
+
+          final suggestions = snapshot.data ?? [];
+
+          if (suggestions.isEmpty) {
+            return Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                "No Similar Movies Found",
+                style: TextStyle(color: Colors.white),
+              ),
+            );
+          }
+
+          return GridView.builder(
+            padding: context.withPadding(8),
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: suggestions.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 5,
+              mainAxisSpacing: 5,
+              childAspectRatio: 189 / 279,
+            ),
+            itemBuilder: (context, index) =>
+                MovieSuggestionCard(suggMovie: suggestions[index]),
+          );
+        },
+      ),
+
+
+    SizedBox(height: context.spaceHeight * 0.03),
           Text(
             context.locale.summary,
             style: context.text.titleLarge!.copyWith(
