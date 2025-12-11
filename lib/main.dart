@@ -54,6 +54,7 @@ class MoviesApp extends StatelessWidget {
             DetailsScreen.routeName: (_) => const DetailsScreen(),
           },
           initialRoute: SplashScreen.routeName,
+
         );
       },
     );
