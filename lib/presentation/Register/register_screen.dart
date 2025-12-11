@@ -17,7 +17,6 @@ class RegisterScreen extends StatefulWidget {
 
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
-
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
@@ -25,8 +24,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
   var nameController = TextEditingController();
   var passwordController = TextEditingController();
   var passwordConfirmationController = TextEditingController();
-   RegisterCubit cubit = getIt();
-  var formKey = GlobalKey<FormState>();
+  RegisterCubit cubit = getIt();
+
   bool showPassword = false;
   bool showConfirmPassword = false;
   int selectedAvatar = -1;
@@ -45,9 +44,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
             ).show(context);
           }
-        case NavigateToLogin():{
 
-        }
+        case NavigateToLogin():
+          {
+            Navigator.pushReplacementNamed(
+              context,
+              LoginScreen.routeName,
+            );
+          }
       }
     });
   }
@@ -62,313 +66,75 @@ class _RegisterScreenState extends State<RegisterScreen> {
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: InkWell(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: const Icon(Icons.arrow_back, color: AppColors.white)),
-          title:  Text(
+            onTap: () {
+              Navigator.pushReplacementNamed(
+                context,
+                LoginScreen.routeName,
+              );
+            },
+            child: Icon(Icons.arrow_back, color: AppColors.white),
+          ),
+          title: Text(
             AppLocalizations.of(context)!.createAccount,
             style: TextStyle(color: AppColors.white),
           ),
         ),
-      
+
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(18),
           child: Column(
             children: [
               const SizedBox(height: 20),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // -------- Avatar 1 --------
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedAvatar = 0;
-                        });
-                      },
-                      child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 8),
-                        padding: EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: selectedAvatar == 0 ? Colors.blue : Colors.transparent,
-                            width: 3,
-                          ),
-                        ),
-                        child: CircleAvatar(
-                          radius: 35,
-                          backgroundImage: AssetImage(AppAsset.avatar1
-                          ),
-                        ),
-                      ),
-                    ),
-                
-                    // -------- Avatar 2 --------
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedAvatar = 1;
-                        });
-                      },
-                      child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 8),
-                        padding: EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: selectedAvatar == 1 ? Colors.blue : Colors.transparent,
-                            width: 3,
-                          ),
-                        ),
-                        child: CircleAvatar(
-                          radius: 35,
-                          backgroundImage: AssetImage(AppAsset.avatar2),
-                        ),
-                      ),
-                    ),
-                
-                    // -------- Avatar 3 --------
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedAvatar = 2;
-                        });
-                      },
-                      child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 8),
-                        padding: EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: selectedAvatar == 2 ? Colors.blue : Colors.transparent,
-                            width: 3,
-                          ),
-                        ),
-                        child: CircleAvatar(
-                          radius: 35,
-                          backgroundImage: AssetImage(AppAsset.avatar3),
-                        ),
-                      ),
-                    ),
-                    // -------- Avatar 4 --------
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedAvatar = 3;
-                        });
-                      },
-                      child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 8),
-                        padding: EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: selectedAvatar == 0 ? Colors.blue : Colors.transparent,
-                            width: 3,
-                          ),
-                        ),
-                        child: CircleAvatar(
-                          radius: 35,
-                          backgroundImage: AssetImage(AppAsset.avatar4
-                          ),
-                        ),
-                      ),
-                    ),
-                
-                    // -------- Avatar 5 --------
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedAvatar = 4;
-                        });
-                      },
-                      child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 8),
-                        padding: EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: selectedAvatar == 1 ? Colors.blue : Colors.transparent,
-                            width: 3,
-                          ),
-                        ),
-                        child: CircleAvatar(
-                          radius: 35,
-                          backgroundImage: AssetImage(AppAsset.avatar5),
-                        ),
-                      ),
-                    ),
-                
-                    // -------- Avatar 6 --------
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedAvatar = 5;
-                        });
-                      },
-                      child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 8),
-                        padding: EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: selectedAvatar == 2 ? Colors.blue : Colors.transparent,
-                            width: 3,
-                          ),
-                        ),
-                        child: CircleAvatar(
-                          radius: 35,
-                          backgroundImage: AssetImage(AppAsset.avatar6),
-                        ),
-                      ),
-                    ),
-                    // -------- Avatar 7 --------
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedAvatar = 6;
-                        });
-                      },
-                      child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 8),
-                        padding: EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: selectedAvatar == 0 ? Colors.blue : Colors.transparent,
-                            width: 3,
-                          ),
-                        ),
-                        child: CircleAvatar(
-                          radius: 35,
-                          backgroundImage: AssetImage(AppAsset.avatar7
-                          ),
-                        ),
-                      ),
-                    ),
-                
-                    // -------- Avatar 8 --------
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedAvatar = 7;
-                        });
-                      },
-                      child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 8),
-                        padding: EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: selectedAvatar == 1 ? Colors.blue : Colors.transparent,
-                            width: 3,
-                          ),
-                        ),
-                        child: CircleAvatar(
-                          radius: 35,
-                          backgroundImage: AssetImage(AppAsset.avatar8),
-                        ),
-                      ),
-                    ),
-                
-                    // -------- Avatar 9 --------
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedAvatar = 8;
-                        });
-                      },
-                      child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 8),
-                        padding: EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: selectedAvatar == 2 ? Colors.blue : Colors.transparent,
-                            width: 3,
-                          ),
-                        ),
-                        child: CircleAvatar(
-                          radius: 35,
-                          backgroundImage: AssetImage(AppAsset.avatar9),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+
+              _buildAvatars(),
               const SizedBox(height: 25),
-      
-              // --- Name ---
-              _inputField(
-                label: AppLocalizations.of(context)!.name,
-                icon: Icons.badge_outlined,
-              ),
+
+              // ---------- INPUTS ----------
+              _inputField(label: AppLocalizations.of(context)!.name, icon: Icons.badge_outlined),
               const SizedBox(height: 12),
-      
-              // --- Email ---
-              _inputField(
-                label: AppLocalizations.of(context)!.email,
-                icon: Icons.email_outlined,
-              ),
+
+              _inputField(label: AppLocalizations.of(context)!.email, icon: Icons.email_outlined),
               const SizedBox(height: 12),
-      
-              // --- Password ---
+
               _inputField(
                 label: AppLocalizations.of(context)!.password,
                 icon: Icons.lock_outline,
                 obscure: !showPassword,
                 suffix: IconButton(
                   icon: Icon(
-                    showPassword
-                        ? Icons.visibility
-                        : Icons.visibility_off,
+                    showPassword ? Icons.visibility : Icons.visibility_off,
                     color: Colors.white70,
                   ),
-                  onPressed: () =>
-                      setState(() => showPassword = !showPassword),
+                  onPressed: () => setState(() => showPassword = !showPassword),
                 ),
               ),
               const SizedBox(height: 12),
-      
-              // --- Confirm Password ---
+
               _inputField(
                 label: AppLocalizations.of(context)!.confirmPassword,
                 icon: Icons.lock_outline,
                 obscure: !showConfirmPassword,
                 suffix: IconButton(
                   icon: Icon(
-                    showConfirmPassword
-                        ? Icons.visibility
-                        : Icons.visibility_off,
+                    showConfirmPassword ? Icons.visibility : Icons.visibility_off,
                     color: Colors.white70,
                   ),
-                  onPressed: () =>
-                      setState(() => showConfirmPassword = !showConfirmPassword),
+                  onPressed: () => setState(() => showConfirmPassword = !showConfirmPassword),
                 ),
               ),
               const SizedBox(height: 12),
-      
-              // --- Phone Number ---
-              _inputField(
-                label: AppLocalizations.of(context)!.phoneNumber,
-                icon: Icons.phone_outlined,
-              ),
+
+              _inputField(label: AppLocalizations.of(context)!.phoneNumber, icon: Icons.phone_outlined),
               const SizedBox(height: 25),
-      
-              // --- Create Account Button ---
+
+              // ---------- REGISTER BUTTON ----------
               SizedBox(
                 width: double.infinity,
                 height: 55,
-                child:  BlocBuilder<RegisterCubit, RegisterState>(
-                  builder:
-                      (context, state) => ElevatedButton(
-                    onPressed: () {
-                      if (formKey.currentState!.validate()) {
+                child: BlocBuilder<RegisterCubit, RegisterState>(
+                  builder: (context, state) {
+                    return ElevatedButton(
+                      onPressed: () {
                         cubit.doAction(
                           RegisterUserAction(
                             nameController.text,
@@ -377,52 +143,47 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             passwordConfirmationController.text,
                           ),
                         );
-                        Navigator.pushReplacementNamed(context, LoginScreen.routeName);
-                      }
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.yellow,
-                    ),
-                    child:
-                    state.loginResources.status == Status.loading
-                        ? const CircularProgressIndicator()
-                        : Text(
-                      AppLocalizations.of(context)!.login,
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium!
-                          .copyWith(color: AppColors.white),
-                    ),
-                  ),
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.yellow,
+                      ),
+                      child: state.loginResources.status == Status.loading
+                          ? CircularProgressIndicator()
+                          : Text(
+                        AppLocalizations.of(context)!.login,
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleMedium!
+                            .copyWith(color: AppColors.white),
+                      ),
+                    );
+                  },
                 ),
-      
               ),
-      
+
               const SizedBox(height: 20),
-      
-              // --- Login Link ---
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children:  [
-                  Text(AppLocalizations.of(context)!.alreadyHaveAccount,
-                      style: TextStyle(color: AppColors.white)),
-                  SizedBox(width: 5),
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.alreadyHaveAccount,
+                    style: TextStyle(color: AppColors.white),
+                  ),
+                  const SizedBox(width: 5),
                   TextButton(
                     onPressed: () {
                       Navigator.pushReplacementNamed(context, LoginScreen.routeName);
                     },
                     child: Text(
-                                        AppLocalizations.of(context)!.login,
-                                        style: TextStyle(
-                    color: AppColors.white,
-                    fontWeight: FontWeight.bold),
-                                      )
+                      AppLocalizations.of(context)!.login,
+                      style: TextStyle(color: AppColors.white, fontWeight: FontWeight.bold),
+                    ),
                   )
                 ],
               ),
-      
+
               const SizedBox(height: 20),
-      
               const LanguageSwitch(),
             ],
           ),
@@ -431,6 +192,48 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
+  // ---------------- AVATARS ----------------
+  Widget _buildAvatars() {
+    List<String> avatars = [
+      AppAsset.avatar1,
+      AppAsset.avatar2,
+      AppAsset.avatar3,
+      AppAsset.avatar4,
+      AppAsset.avatar5,
+      AppAsset.avatar6,
+      AppAsset.avatar7,
+      AppAsset.avatar8,
+      AppAsset.avatar9,
+    ];
+
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: List.generate(avatars.length, (index) {
+          return GestureDetector(
+            onTap: () => setState(() => selectedAvatar = index),
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 8),
+              padding: EdgeInsets.all(3),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: selectedAvatar == index ? Colors.blue : Colors.transparent,
+                  width: 3,
+                ),
+              ),
+              child: CircleAvatar(
+                radius: 35,
+                backgroundImage: AssetImage(avatars[index]),
+              ),
+            ),
+          );
+        }),
+      ),
+    );
+  }
+
+  // ---------------- INPUT FIELD ----------------
   Widget _inputField({
     required String label,
     required IconData icon,
