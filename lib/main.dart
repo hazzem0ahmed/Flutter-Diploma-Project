@@ -53,7 +53,7 @@ class MoviesApp extends StatelessWidget {
             HomeScreen.routeName: (_) => HomeScreen(),
             DetailsScreen.routeName: (_) => const DetailsScreen(),
           },
-          initialRoute: HomeScreen.routeName,
+          initialRoute: SplashScreen.routeName,
         );
       },
     );
