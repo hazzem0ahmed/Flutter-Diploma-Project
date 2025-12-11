@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/presentation/screens/home_screen.dart';
-import 'package:movies/presentation/screens/tabs/homeTab/home_tab.dart';
 import 'package:movies/presentation/widgets/language/language_switch.dart';
 import '../../../../l10n/generated/app_localizations.dart';
 import '../../../../presentation/Register/register_screen.dart';

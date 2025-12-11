@@ -41,6 +41,7 @@
   "alreadyHaveAccount": "Already have an account?",
   "login": "Login",
   "dontHaveAccount": "dont Have Account",
-  "forgetPassword": "forget Password"
+  "forgetPassword": "forget Password",
+  "imageNotFound": "Image Not Found"
 
 }

@@ -355,6 +355,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'forget Password'**
   String get forgetPassword;
+
+  /// No description provided for @imageNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Image Not Found'**
+  String get imageNotFound;
 }
 
 class _AppLocalizationsDelegate

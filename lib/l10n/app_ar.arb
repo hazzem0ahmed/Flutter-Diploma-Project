@@ -41,5 +41,6 @@
   "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
   "login": "تسجيل الدخول",
   "dontHaveAccount" : "ليس لدي حساب",
-  "forgetPassword": "نسيت كلمة المرور"
+  "forgetPassword": "نسيت كلمة المرور",
+  "imageNotFound": "حدث خطأ اثناء تحميل الصورة "
 }

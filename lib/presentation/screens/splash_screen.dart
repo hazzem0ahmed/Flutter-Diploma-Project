@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/core/app_asset.dart';
-import '../../on_boarding/on_boarding_final.dart';
+import 'package:movies/on_boarding/on_boarding.dart';
+
 
 class SplashScreen extends StatefulWidget {
   static const String routeName = "/splash";
@@ -18,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(Duration(seconds: 3)).then((value) async {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => OnBoardingFinal()),
+        MaterialPageRoute(builder: (context) => OnBoardingScreen()),
       );
     });
   }

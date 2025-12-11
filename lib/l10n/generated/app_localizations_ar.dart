@@ -143,4 +143,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get forgetPassword => 'نسيت كلمة المرور';
+
+  @override
+  String get imageNotFound => 'حدث خطأ اثناء تحميل الصورة ';
 }

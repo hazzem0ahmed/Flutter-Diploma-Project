@@ -11,6 +11,7 @@ import 'di/modules/service_locator.dart';
 import 'features/login/presentation/pages/login_screen.dart';
 import 'firebase_options.dart';
 import 'l10n/generated/app_localizations.dart';
+import 'on_boarding/on_boarding.dart';
 import 'on_boarding/on_boarding_final.dart';
 const String webClientId = 'YOUR_WEB_CLIENT_ID.apps.googleusercontent.com';
 
@@ -44,14 +45,15 @@ class MoviesApp extends StatelessWidget {
           supportedLocales: AppLocalizations.supportedLocales,
 
           routes: {
+            OnBoardingScreen.routeName: (_) => const OnBoardingScreen(),
             OnBoardingFinal.routeName: (_) => OnBoardingFinal(),
-            LoginScreen.routeName: (context) => const LoginScreen(),
-            RegisterScreen.routeName: (context) => const RegisterScreen(),
-            SplashScreen.routeName: (context) => const SplashScreen(),
-            HomeScreen.routeName: (context) => HomeScreen(),
-            DetailsScreen.routeName: (context) => const DetailsScreen(),
+            LoginScreen.routeName: (_) => const LoginScreen(),
+            RegisterScreen.routeName: (_) => const RegisterScreen(),
+            SplashScreen.routeName: (_) => const SplashScreen(),
+            HomeScreen.routeName: (_) => HomeScreen(),
+            DetailsScreen.routeName: (_) => const DetailsScreen(),
           },
-          initialRoute: OnBoardingFinal.routeName,
+          initialRoute: HomeScreen.routeName,
         );
       },
     );

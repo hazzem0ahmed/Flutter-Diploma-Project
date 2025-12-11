@@ -143,4 +143,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get forgetPassword => 'forget Password';
+
+  @override
+  String get imageNotFound => 'Image Not Found';
 }

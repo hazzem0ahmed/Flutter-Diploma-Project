@@ -23,13 +23,11 @@ class _ApiClient implements ApiClient {
   Future<MoviesListData> getMoviesList({
     String sortBy = "rating",
     int? movieId,
-    String? genre,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'sort_by': sortBy,
       r'movie_id': movieId,
-      r'genre': genre,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
@@ -48,6 +46,69 @@ class _ApiClient implements ApiClient {
     late MoviesListData _value;
     try {
       _value = MoviesListData.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<MoviesDetailsData> getMoviesDetails({
+    int? movieId,
+    bool withImages = true,
+    bool withCast = true,
+  }) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'movie_id': movieId,
+      r'with_images': withImages,
+      r'with_cast': withCast,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<MoviesDetailsData>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/v2/movie_details.json',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<dynamic>(_options);
+    late MoviesDetailsData _value;
+    try {
+      _value = MoviesDetailsData.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<SuggMovieApi> getSuggestedMovies({required int movieId}) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'movie_id': movieId};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<SuggMovieApi>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/v2/movie_suggestions.json',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<dynamic>(_options);
+    late SuggMovieApi _value;
+    try {
+      _value = SuggMovieApi.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, _result);
       rethrow;
