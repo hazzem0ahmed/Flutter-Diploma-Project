@@ -361,6 +361,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Image Not Found'**
   String get imageNotFound;
+
+  /// No description provided for @thereIsNoDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'There Is Neither Description Nor Summary For this Movie'**
+  String get thereIsNoDescription;
 }
 
 class _AppLocalizationsDelegate

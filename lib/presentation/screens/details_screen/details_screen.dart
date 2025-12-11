@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/core/app_asset.dart';
 import 'package:movies/core/app_colors.dart';
@@ -58,7 +59,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
     return FutureBuilder<details_data.Movie?>(
       future: fetchMovieDetails(movie.id.toString()),
       builder: (context, snapshot) {
-
         return Scaffold(
           extendBodyBehindAppBar: true,
           backgroundColor: AppColors.black,
@@ -288,7 +288,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
               ).withPaddingAll(8),
               SizedBox(height: context.spaceHeight * 0.01),
               Text(
-                movie.summary ?? snapshot.data?.descriptionFull ?? "",
+                movie.summary ??
+                    snapshot.data?.descriptionFull ??
+                    context.locale.thereIsNoDescription,
                 style: context.text.bodyMedium!.copyWith(
                   color: AppColors.white,
                   fontWeight: FontWeight.w400,
@@ -316,12 +318,24 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         child: Row(
                           spacing: 10,
                           children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.network(
-                                cast.urlSmallImage ?? "",
+                            CachedNetworkImage(
+                              imageUrl: cast.urlSmallImage ?? "",
+                              errorWidget: (context, url, error) => Image.asset(
+                                AppAsset.userImage,
                                 fit: BoxFit.cover,
+                                width: context.spaceWidth * 0.2,
+                                height: context.spaceHeight * 0.08,
                               ),
+                              placeholder: (context, url) =>
+                                  Center(child: CircularProgressIndicator()),
+                              imageBuilder: (context, imageProvider) =>
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(25),
+                                    child: Image.network(
+                                      cast.urlSmallImage ?? "",
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
                             ),
                             SizedBox(width: context.spaceWidth * 0.01),
                             Expanded(

@@ -42,5 +42,6 @@
   "login": "تسجيل الدخول",
   "dontHaveAccount" : "ليس لدي حساب",
   "forgetPassword": "نسيت كلمة المرور",
-  "imageNotFound": "حدث خطأ اثناء تحميل الصورة "
+  "imageNotFound": "حدث خطأ اثناء تحميل الصورة ",
+  "thereIsNo Description": "لا يوجد وصف أو ملخص لهذا الفيلم"
 }

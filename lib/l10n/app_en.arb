@@ -42,6 +42,7 @@
   "login": "Login",
   "dontHaveAccount": "dont Have Account",
   "forgetPassword": "forget Password",
-  "imageNotFound": "Image Not Found"
+  "imageNotFound": "Image Not Found",
+  "thereIsNoDescription": "There Is Neither Description Nor Summary For this Movie"
 
 }

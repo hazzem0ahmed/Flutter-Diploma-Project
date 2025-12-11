@@ -24,6 +24,7 @@ abstract class AppAsset {
   static const String videoIcon= "assets/images/video.png";
   static const String watchNow= "assets/images/Watch Now.png";
   static const String availableNow= "assets/images/Available Now.png";
+  static const String userImage= "assets/images/user.png";
 
 
 

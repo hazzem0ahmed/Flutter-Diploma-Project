@@ -146,4 +146,8 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get imageNotFound => 'حدث خطأ اثناء تحميل الصورة ';
+
+  @override
+  String get thereIsNoDescription =>
+      'There Is Neither Description Nor Summary For this Movie';
 }

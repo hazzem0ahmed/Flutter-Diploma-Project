@@ -146,4 +146,8 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get imageNotFound => 'Image Not Found';
+
+  @override
+  String get thereIsNoDescription =>
+      'There Is Neither Description Nor Summary For this Movie';
 }
