@@ -24,7 +24,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
   var nameController = TextEditingController();
   var passwordController = TextEditingController();
   var passwordConfirmationController = TextEditingController();
+  var phoneController = TextEditingController();
+
   RegisterCubit cubit = getIt();
+  var formKey = GlobalKey<FormState>();
 
   bool showPassword = false;
   bool showConfirmPassword = false;
@@ -33,25 +36,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   void initState() {
     super.initState();
+
     cubit.navigation.listen((navigationState) {
       switch (navigationState) {
         case ShowRegisterErrorToast():
-          {
-            CherryToast.error(
-              title: Text(
-                navigationState.errorMessage,
-                style: const TextStyle(color: Colors.black),
-              ),
-            ).show(context);
-          }
+          CherryToast.error(
+            title: Text(
+              navigationState.errorMessage,
+              style: const TextStyle(color: Colors.black),
+            ),
+          ).show(context);
 
         case NavigateToLogin():
-          {
-            Navigator.pushReplacementNamed(
-              context,
-              LoginScreen.routeName,
-            );
-          }
+          Navigator.pushReplacementNamed(
+            context,
+            LoginScreen.routeName,
+          );
       }
     });
   }
@@ -62,16 +62,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
       create: (context) => cubit,
       child: Scaffold(
         backgroundColor: AppColors.black,
+
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: InkWell(
-            onTap: () {
-              Navigator.pushReplacementNamed(
-                context,
-                LoginScreen.routeName,
-              );
-            },
+            onTap: () => Navigator.pushReplacementNamed(
+                context, LoginScreen.routeName),
             child: Icon(Icons.arrow_back, color: AppColors.white),
           ),
           title: Text(
@@ -82,117 +79,147 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(18),
-          child: Column(
-            children: [
-              const SizedBox(height: 20),
+          child: Form(
+            key: formKey,
+            child: Column(
+              children: [
+                const SizedBox(height: 20),
 
-              _buildAvatars(),
-              const SizedBox(height: 25),
+                // ========== Avatars ==========
+                _buildAvatars(),
+                const SizedBox(height: 25),
 
-              // ---------- INPUTS ----------
-              _inputField(label: AppLocalizations.of(context)!.name, icon: Icons.badge_outlined),
-              const SizedBox(height: 12),
-
-              _inputField(label: AppLocalizations.of(context)!.email, icon: Icons.email_outlined),
-              const SizedBox(height: 12),
-
-              _inputField(
-                label: AppLocalizations.of(context)!.password,
-                icon: Icons.lock_outline,
-                obscure: !showPassword,
-                suffix: IconButton(
-                  icon: Icon(
-                    showPassword ? Icons.visibility : Icons.visibility_off,
-                    color: Colors.white70,
-                  ),
-                  onPressed: () => setState(() => showPassword = !showPassword),
+                // ========== Inputs ==========
+                _inputField(
+                  label: AppLocalizations.of(context)!.name,
+                  icon: Icons.badge_outlined,
+                  controller: nameController,
                 ),
-              ),
-              const SizedBox(height: 12),
+                const SizedBox(height: 12),
 
-              _inputField(
-                label: AppLocalizations.of(context)!.confirmPassword,
-                icon: Icons.lock_outline,
-                obscure: !showConfirmPassword,
-                suffix: IconButton(
-                  icon: Icon(
-                    showConfirmPassword ? Icons.visibility : Icons.visibility_off,
-                    color: Colors.white70,
-                  ),
-                  onPressed: () => setState(() => showConfirmPassword = !showConfirmPassword),
+                _inputField(
+                  label: AppLocalizations.of(context)!.email,
+                  icon: Icons.email_outlined,
+                  controller: emailController,
                 ),
-              ),
-              const SizedBox(height: 12),
+                const SizedBox(height: 12),
 
-              _inputField(label: AppLocalizations.of(context)!.phoneNumber, icon: Icons.phone_outlined),
-              const SizedBox(height: 25),
-
-              // ---------- REGISTER BUTTON ----------
-              SizedBox(
-                width: double.infinity,
-                height: 55,
-                child: BlocBuilder<RegisterCubit, RegisterState>(
-                  builder: (context, state) {
-                    return ElevatedButton(
-                      onPressed: () {
-                        cubit.doAction(
-                          RegisterUserAction(
-                            nameController.text,
-                            emailController.text,
-                            passwordController.text,
-                            passwordConfirmationController.text,
-                          ),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.yellow,
-                      ),
-                      child: state.loginResources.status == Status.loading
-                          ? CircularProgressIndicator()
-                          : Text(
-                        AppLocalizations.of(context)!.login,
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleMedium!
-                            .copyWith(color: AppColors.white),
-                      ),
-                    );
-                  },
-                ),
-              ),
-
-              const SizedBox(height: 20),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    AppLocalizations.of(context)!.alreadyHaveAccount,
-                    style: TextStyle(color: AppColors.white),
-                  ),
-                  const SizedBox(width: 5),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(context, LoginScreen.routeName);
-                    },
-                    child: Text(
-                      AppLocalizations.of(context)!.login,
-                      style: TextStyle(color: AppColors.white, fontWeight: FontWeight.bold),
+                _inputField(
+                  label: AppLocalizations.of(context)!.password,
+                  icon: Icons.lock_outline,
+                  controller: passwordController,
+                  obscure: !showPassword,
+                  suffix: IconButton(
+                    icon: Icon(
+                      showPassword
+                          ? Icons.visibility
+                          : Icons.visibility_off,
+                      color: Colors.white70,
                     ),
-                  )
-                ],
-              ),
+                    onPressed: () =>
+                        setState(() => showPassword = !showPassword),
+                  ),
+                ),
+                const SizedBox(height: 12),
 
-              const SizedBox(height: 20),
-              const LanguageSwitch(),
-            ],
+                _inputField(
+                  label: AppLocalizations.of(context)!.confirmPassword,
+                  icon: Icons.lock_outline,
+                  controller: passwordConfirmationController,
+                  obscure: !showConfirmPassword,
+                  suffix: IconButton(
+                    icon: Icon(
+                      showConfirmPassword
+                          ? Icons.visibility
+                          : Icons.visibility_off,
+                      color: Colors.white70,
+                    ),
+                    onPressed: () => setState(
+                            () => showConfirmPassword = !showConfirmPassword),
+                  ),
+                ),
+                const SizedBox(height: 12),
+
+                _inputField(
+                  label: AppLocalizations.of(context)!.phoneNumber,
+                  icon: Icons.phone_outlined,
+                  controller: phoneController,
+                ),
+                const SizedBox(height: 25),
+
+                // ========== Register Button ==========
+                SizedBox(
+                  width: double.infinity,
+                  height: 55,
+                  child: BlocBuilder<RegisterCubit, RegisterState>(
+                    builder: (context, state) {
+                      return ElevatedButton(
+                        onPressed: () {
+                          if (formKey.currentState!.validate()) {
+                            cubit.doAction(
+                              RegisterUserAction(
+                                nameController.text,
+                                emailController.text,
+                                passwordController.text,
+                                passwordConfirmationController.text,
+                              ),
+                            );
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.yellow,
+                        ),
+                        child: state.loginResources.status == Status.loading
+                            ? CircularProgressIndicator()
+                            : Text(
+                          AppLocalizations.of(context)!.login,
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleMedium!
+                              .copyWith(color: AppColors.white),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+
+                const SizedBox(height: 20),
+
+                // ========== Login Link ==========
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      AppLocalizations.of(context)!.alreadyHaveAccount,
+                      style: TextStyle(color: AppColors.white),
+                    ),
+                    const SizedBox(width: 5),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(
+                            context, LoginScreen.routeName);
+                      },
+                      child: Text(
+                        AppLocalizations.of(context)!.login,
+                        style: TextStyle(
+                            color: AppColors.white,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    )
+                  ],
+                ),
+
+                const SizedBox(height: 20),
+                const LanguageSwitch(),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  // ---------------- AVATARS ----------------
+  // ========== Avatars ==========
   Widget _buildAvatars() {
     List<String> avatars = [
       AppAsset.avatar1,
@@ -218,7 +245,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: selectedAvatar == index ? Colors.blue : Colors.transparent,
+                  color: selectedAvatar == index
+                      ? Colors.blue
+                      : Colors.transparent,
                   width: 3,
                 ),
               ),
@@ -233,10 +262,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
-  // ---------------- INPUT FIELD ----------------
+  // ========== Input Field ==========
   Widget _inputField({
     required String label,
     required IconData icon,
+    required TextEditingController controller,
     bool obscure = false,
     Widget? suffix,
   }) {
@@ -245,9 +275,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
         color: const Color(0xFF2C2C2C),
         borderRadius: BorderRadius.circular(10),
       ),
-      child: TextField(
+      child: TextFormField(
+        controller: controller,
         obscureText: obscure,
         style: const TextStyle(color: AppColors.white),
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return "هذا الحقل مطلوب";
+          }
+          return null;
+        },
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(horizontal: 15),
           prefixIcon: Icon(icon, color: Colors.white70),
