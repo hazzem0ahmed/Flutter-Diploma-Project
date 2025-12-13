@@ -12,21 +12,19 @@ abstract class AppAsset {
   static const String onBoarding5Image= "assets/images/onBoarding5.png";
   static const String routeLogo= "assets/images/route_logo.png";
   static const String supervisedImage= "assets/images/supervised_logo.png";
-  static const String avatar1= "assets/images/avatar1.png";
-  static const String avatar2= "assets/images/avatar2.png";
-  static const String avatar3= "assets/images/avatar3.png";
-  static const String avatar4= "assets/images/avatar4.png";
-  static const String avatar5= "assets/images/avatar5.png";
-  static const String avatar6= "assets/images/avatar6.png";
-  static const String avatar7= "assets/images/avatar7.png";
-  static const String avatar8= "assets/images/avatar8.png";
-  static const String avatar9= "assets/images/avatar9.png";
+  static const String avatar1= "assets/avatars/avatar1.png";
+  static const String avatar2= "assets/avatars/avatar2.png";
+  static const String avatar3= "assets/avatars/avatar3.png";
+  static const String avatar4= "assets/avatars/avatar4.png";
+  static const String avatar5= "assets/avatars/avatar5.png";
+  static const String avatar6= "assets/avatars/avatar6.png";
+  static const String avatar7= "assets/avatars/avatar7.png";
+  static const String avatar8= "assets/avatars/avatar8.png";
+  static const String avatar9= "assets/avatars/avatar9.png";
   static const String videoIcon= "assets/images/video.png";
   static const String watchNow= "assets/images/Watch Now.png";
   static const String availableNow= "assets/images/Available Now.png";
   static const String userImage= "assets/images/user.png";
-
-
-
-
+  static const String historyImage = "assets/images/history.png";
+  static const String watchListImage = "assets/images/watch list.png";
 }

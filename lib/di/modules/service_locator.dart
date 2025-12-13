@@ -24,5 +24,7 @@ void configureDependenciesGetIt() {
   );
   getIt.registerFactory<AuthRepo>(() => AuthRepoImpl(getIt(), getIt()));
   getIt.registerFactory<SignupUserUseCase>(() => SignupUserUseCase(getIt()));
-  getIt.registerFactory<RegisterCubit>(() => RegisterCubit(getIt()));
+
+  // Correctly provide both dependencies to the RegisterCubit
+  getIt.registerFactory<RegisterCubit>(() => RegisterCubit(getIt(), getIt()));
 }

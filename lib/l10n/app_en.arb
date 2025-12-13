@@ -43,6 +43,10 @@
   "dontHaveAccount": "dont Have Account",
   "forgetPassword": "forget Password",
   "imageNotFound": "Image Not Found",
-  "thereIsNoDescription": "There Is Neither Description Nor Summary For this Movie"
-
+  "thereIsNoDescription": "There Is Neither Description Nor Summary For this Movie",
+  "editProfile": "Edit Profile",
+  "watchList": "Watch List",
+  "histroy": "Histroy",
+  "exit": "Exit",
+  "pickAvatar": "Pick Avatar"
 }

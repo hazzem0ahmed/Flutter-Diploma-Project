@@ -43,5 +43,10 @@
   "dontHaveAccount" : "ليس لدي حساب",
   "forgetPassword": "نسيت كلمة المرور",
   "imageNotFound": "حدث خطأ اثناء تحميل الصورة ",
-  "thereIsNo Description": "لا يوجد وصف أو ملخص لهذا الفيلم"
+  "thereIsNo Description": "لا يوجد وصف أو ملخص لهذا الفيلم",
+  "editProfile": "تعديل الحساب",
+  "watchList": "ماتم مشاهدته",
+  "histroy": "التاريخ",
+  "exit": "خروج",
+  "pickAvatar": "اختر الصوره"
 }

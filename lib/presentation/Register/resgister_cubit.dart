@@ -1,4 +1,5 @@
 import 'package:injectable/injectable.dart';
+import 'package:movies/auth/data/datasource/contract/auth_local_datasource.dart';
 import 'package:movies/presentation/Register/resgister_contract.dart';
 import '../../auth/domain/use_case/signup_user_use_case.dart';
 import '../../base/base_cubit.dart';
@@ -9,7 +10,10 @@ import '../../network/results.dart';
 class RegisterCubit
     extends BaseCubit<RegisterState, RegisterAction, RegisterNavigationAction> {
   SignupUserUseCase useCase;
-  RegisterCubit(this.useCase) : super(RegisterState());
+  AuthLocalDatasource localDatasource;
+
+  RegisterCubit(this.useCase, this.localDatasource)
+      : super(RegisterState());
 
   @override
   Future<void> doAction(RegisterAction action) async {
@@ -32,6 +36,9 @@ class RegisterCubit
     switch (response) {
       case Success<String>():
         {
+          await localDatasource.saveToken(response.data!); 
+          await localDatasource.saveUserName(action.name);
+
           emit(
             state.copyWith(
               loginResources: Resources.success(data: response.data),
@@ -53,5 +60,4 @@ class RegisterCubit
         }
     }
   }
-
 }

@@ -150,4 +150,19 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get thereIsNoDescription =>
       'There Is Neither Description Nor Summary For this Movie';
+
+  @override
+  String get editProfile => 'Edit Profile';
+
+  @override
+  String get watchList => 'Watch List';
+
+  @override
+  String get histroy => 'Histroy';
+
+  @override
+  String get exit => 'Exit';
+
+  @override
+  String get pickAvatar => 'Pick Avatar';
 }

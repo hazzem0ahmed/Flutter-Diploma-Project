@@ -150,4 +150,19 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get thereIsNoDescription =>
       'There Is Neither Description Nor Summary For this Movie';
+
+  @override
+  String get editProfile => 'تعديل الحساب';
+
+  @override
+  String get watchList => 'ماتم مشاهدته';
+
+  @override
+  String get histroy => 'التاريخ';
+
+  @override
+  String get exit => 'خروج';
+
+  @override
+  String get pickAvatar => 'اختر الصوره';
 }
