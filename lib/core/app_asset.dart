@@ -27,4 +27,7 @@ abstract class AppAsset {
   static const String userImage= "assets/images/user.png";
   static const String historyImage = "assets/images/history.png";
   static const String watchListImage = "assets/images/watch list.png";
+  static const String searchImage = "assets/images/search image.png";
+  static const String searchIcon = "assets/images/searchTab.png";
+
 }

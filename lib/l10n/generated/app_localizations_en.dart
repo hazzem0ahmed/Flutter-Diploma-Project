@@ -165,4 +165,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pickAvatar => 'Pick Avatar';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String get errorSearch => 'Search failed. Please try again.';
+
+  @override
+  String get noSearchResults => 'No results found for this search';
 }

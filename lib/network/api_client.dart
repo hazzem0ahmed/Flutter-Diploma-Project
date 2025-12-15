@@ -6,12 +6,12 @@ import 'package:retrofit/retrofit.dart';
 import '../auth/data/models/auth_response_dto.dart';
 import '../auth/data/models/register_request_dto.dart';
 import '../features/data/moviesList/movies_list_data.dart';
+import 'models/search_api.dart';
 import 'models/sugg_movie_api.dart';
-
 part 'api_client.g.dart';
 
 @singleton
-@RestApi()
+@RestApi(baseUrl: "https://yts.lt")
 abstract class ApiClient {
   @factoryMethod
   factory ApiClient(Dio dio) = _ApiClient;
@@ -36,4 +36,13 @@ abstract class ApiClient {
 
   @POST("/api/v1/auth/signup")
   Future<AuthResponseDto> signUp(@Body() RegisterRequestDto request);
+
+  /// 🔍 Search API
+  @GET("/api/v2/list_movies.json")
+  Future<SearchApi> searchMovies({
+    @Query("query_term") required String query,
+    @Query("limit") int limit = 20,
+    @Query("page") int page = 1,
+  });
+
 }
