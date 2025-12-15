@@ -9,7 +9,7 @@ import 'package:movies/di/modules/service_locator.dart';
 import 'package:movies/features/login/presentation/pages/login_screen.dart';
 import 'package:movies/presentation/screens/tabs/profile_tab/profile_tab_contract.dart';
 import 'package:movies/presentation/screens/tabs/profile_tab/profile_tab_view_model.dart';
-import 'package:movies/presentation/screens/tabs/profile_tab/profile_tabs_content/history_tab.dart';
+import 'package:movies/presentation/screens/tabs/profile_tab/profile_tabs_content/histiry_tab/history_tab.dart';
 import 'package:movies/presentation/screens/tabs/profile_tab/profile_tabs_content/watch_list_tab.dart';
 
 import '../../../../firebase/google_auth.dart';
@@ -28,7 +28,7 @@ class _ProfileTabState extends State<ProfileTab>
 
   //TabBar
   int selectedIndex = 0;
-  List<Widget> profileTabs = [WatchListTab(), HistoryTab()];
+  List<Widget> profileTabs = [WatchListTab(), HistoryTab(historyMovies: [],)];
   late TabController tabController;
 
   //Profile Tab View Model

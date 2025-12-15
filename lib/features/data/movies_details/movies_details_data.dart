@@ -4,6 +4,11 @@ class MoviesDetailsData {
     this.statusMessage,
     this.data,
     this.meta,
+    num? id,
+    num? year,
+    String? largeCoverImage,
+    String? title,
+    num? rating,
   });
 
   MoviesDetailsData.fromJson(dynamic json) {

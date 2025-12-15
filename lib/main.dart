@@ -5,6 +5,7 @@ import 'package:movies/presentation/Register/register_screen.dart';
 import 'package:movies/presentation/screens/details_screen/details_screen.dart';
 import 'package:movies/presentation/screens/home_screen.dart';
 import 'package:movies/presentation/screens/splash_screen.dart';
+import 'package:movies/presentation/screens/tabs/profile_tab/profile_tabs_content/histiry_tab/History_Cubit.dart';
 import 'package:movies/presentation/widgets/language/language_contract.dart';
 import 'package:movies/presentation/widgets/language/language_vm.dart';
 import 'di/modules/service_locator.dart';
@@ -24,8 +25,15 @@ void main() async {
   configureDependenciesGetIt();
 
   runApp(
-    BlocProvider<LanguageViewModel>(
-      create: (context) => LanguageViewModel(),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider<LanguageViewModel>(
+          create: (context) => LanguageViewModel(),
+        ),
+        BlocProvider<HistoryCubit>(
+          create: (context) => HistoryCubit(),
+        ),
+      ],
       child: const MoviesApp(),
     ),
   );

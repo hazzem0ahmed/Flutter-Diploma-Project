@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/core/app_asset.dart';
 import 'package:movies/core/app_colors.dart';
 import 'package:movies/core/app_extensions.dart';
@@ -10,10 +11,11 @@ import 'package:movies/network/api_client.dart';
 import 'package:movies/network/dio_provider.dart';
 import 'package:movies/presentation/widgets/movie_details/movie_details.dart';
 import '../../../features/data/movies_details/movies_details_data.dart'
-    as details_data;
+as details_data;
 import '../../../network/models/sugg_movie_api.dart';
 import '../../widgets/movie_suggestion_card.dart';
 import '../../widgets/watch_handler_button/watch_handler_button.dart';
+import '../tabs/profile_tab/profile_tabs_content/histiry_tab/History_Cubit.dart';
 
 Future<details_data.Movie?> fetchMovieDetails(String id) async {
   final response = await ApiClient(
@@ -42,6 +44,9 @@ class DetailsScreen extends StatefulWidget {
 }
 
 class _DetailsScreenState extends State<DetailsScreen> {
+  late Movies _movie;
+  bool _isMovieAddedToHistory = false;
+
   void onWatchPressed(BuildContext context, Movies movie) {
     if (movie.ytTrailerCode != null && movie.ytTrailerCode!.isNotEmpty) {
       final youtubeUrl =
@@ -53,8 +58,32 @@ class _DetailsScreenState extends State<DetailsScreen> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    _movie = ModalRoute.of(context)!.settings.arguments as Movies;
+
+    if (!_isMovieAddedToHistory) {
+
+
+      final movieDetailsForHistory = details_data.MoviesDetailsData(
+        id: _movie.id,
+        title: _movie.title,
+        year: _movie.year,
+        rating: _movie.rating,
+        largeCoverImage: _movie.largeCoverImage,
+      );
+
+      context.read<HistoryCubit>().addMovie(movieDetailsForHistory);
+
+      _isMovieAddedToHistory = true;
+    }
+  }
+
+
+  @override
   Widget build(BuildContext context) {
-    final movie = ModalRoute.of(context)!.settings.arguments as Movies;
+    final movie = _movie;
 
     return FutureBuilder<details_data.Movie?>(
       future: fetchMovieDetails(movie.id.toString()),
@@ -171,8 +200,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 ),
               ).withPaddingAll(8),
               Column(
-                spacing: 10,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(25),
@@ -187,6 +214,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       },
                     ),
                   ),
+                  SizedBox(height: 10),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(25),
                     child: Image.network(
@@ -200,6 +228,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       },
                     ),
                   ),
+                  SizedBox(height: 10),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(25),
                     child: Image.network(
@@ -265,12 +294,12 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     physics: const NeverScrollableScrollPhysics(),
                     itemCount: suggestions.length,
                     gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 5,
-                          mainAxisSpacing: 5,
-                          childAspectRatio: 189 / 279,
-                        ),
+                    const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 5,
+                      mainAxisSpacing: 5,
+                      childAspectRatio: 189 / 279,
+                    ),
                     itemBuilder: (context, index) =>
                         MovieSuggestionCard(suggMovie: suggestions[index]),
                   );
@@ -316,7 +345,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: Row(
-                          spacing: 10,
                           children: [
                             CachedNetworkImage(
                               imageUrl: cast.urlSmallImage ?? "",
@@ -334,10 +362,12 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                     child: Image.network(
                                       cast.urlSmallImage ?? "",
                                       fit: BoxFit.cover,
+                                      width: context.spaceWidth * 0.2,
+                                      height: context.spaceHeight * 0.08,
                                     ),
                                   ),
                             ),
-                            SizedBox(width: context.spaceWidth * 0.01),
+                            SizedBox(width: context.spaceWidth * 0.03),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
