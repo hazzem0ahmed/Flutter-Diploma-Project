@@ -48,5 +48,10 @@
   "watchList": "ماتم مشاهدته",
   "histroy": "التاريخ",
   "exit": "خروج",
-  "pickAvatar": "اختر الصوره"
+  "pickAvatar": "اختر الصوره",
+  "search" : "البحث",
+  "errorSearch" : "حدث خطأ أثناء البحث. حاول مرة أخرى.",
+  "noSearchResults": "لا توجد نتائج لهذا البحث"
+
+
 }

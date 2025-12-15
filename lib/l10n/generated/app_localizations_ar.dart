@@ -165,4 +165,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get pickAvatar => 'اختر الصوره';
+
+  @override
+  String get search => 'البحث';
+
+  @override
+  String get errorSearch => 'حدث خطأ أثناء البحث. حاول مرة أخرى.';
+
+  @override
+  String get noSearchResults => 'لا توجد نتائج لهذا البحث';
 }

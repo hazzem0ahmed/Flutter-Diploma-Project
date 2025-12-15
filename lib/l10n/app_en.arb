@@ -48,5 +48,9 @@
   "watchList": "Watch List",
   "histroy": "Histroy",
   "exit": "Exit",
-  "pickAvatar": "Pick Avatar"
+  "pickAvatar": "Pick Avatar",
+  "search" : "Search",
+  "errorSearch" : "Search failed. Please try again.",
+  "noSearchResults": "No results found for this search"
+
 }

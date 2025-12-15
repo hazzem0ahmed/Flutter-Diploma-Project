@@ -397,6 +397,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Pick Avatar'**
   String get pickAvatar;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
+
+  /// No description provided for @errorSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Search failed. Please try again.'**
+  String get errorSearch;
+
+  /// No description provided for @noSearchResults.
+  ///
+  /// In en, this message translates to:
+  /// **'No results found for this search'**
+  String get noSearchResults;
 }
 
 class _AppLocalizationsDelegate
