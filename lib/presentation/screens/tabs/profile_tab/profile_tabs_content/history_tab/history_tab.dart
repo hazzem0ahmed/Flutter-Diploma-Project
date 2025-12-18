@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies/presentation/screens/tabs/profile_tab/profile_tabs_content/histiry_tab/History_Cubit.dart';
+import 'package:movies/presentation/screens/tabs/profile_tab/profile_tabs_content/history_tab/History_Cubit.dart';
 import '../../../../../../features/data/movies_details/movies_details_data.dart';
 
 class HistoryTab extends StatelessWidget {

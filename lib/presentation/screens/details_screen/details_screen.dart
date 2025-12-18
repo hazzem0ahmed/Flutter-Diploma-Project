@@ -9,13 +9,13 @@ import 'package:movies/core/text_theme.dart';
 import 'package:movies/features/data/moviesList/movies_list_data.dart';
 import 'package:movies/network/api_client.dart';
 import 'package:movies/network/dio_provider.dart';
+import 'package:movies/presentation/screens/tabs/profile_tab/profile_tabs_content/history_tab/History_Cubit.dart';
 import 'package:movies/presentation/widgets/movie_details/movie_details.dart';
 import '../../../features/data/movies_details/movies_details_data.dart'
 as details_data;
 import '../../../network/models/sugg_movie_api.dart';
 import '../../widgets/movie_suggestion_card.dart';
 import '../../widgets/watch_handler_button/watch_handler_button.dart';
-import '../tabs/profile_tab/profile_tabs_content/histiry_tab/History_Cubit.dart';
 
 Future<details_data.Movie?> fetchMovieDetails(String id) async {
   final response = await ApiClient(
