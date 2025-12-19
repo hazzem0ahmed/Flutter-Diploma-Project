@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies/presentation/screens/tabs/explore_tab.dart';
+import 'package:movies/presentation/screens/tabs/explore_screen/explore_tab.dart';
 import 'package:movies/presentation/screens/tabs/homeTab/home_tab.dart';
 import 'package:movies/presentation/screens/tabs/profile_tab/profile_tab.dart';
 import 'package:movies/presentation/screens/tabs/search_tab.dart';

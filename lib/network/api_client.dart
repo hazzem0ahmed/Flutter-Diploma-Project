@@ -20,6 +20,8 @@ abstract class ApiClient {
   Future<MoviesListData> getMoviesList({
     @Query("sort_by") String sortBy = "rating",
     @Query("movie_id") int? movieId,
+
+
   });
 
   @GET("/api/v2/movie_details.json")
