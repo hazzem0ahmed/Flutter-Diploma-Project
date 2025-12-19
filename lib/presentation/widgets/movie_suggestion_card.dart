@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies/network/models/sugg_movie_api.dart';
 import '../../core/app_colors.dart';
 import '../../core/app_extensions.dart';
-import '../../features/data/moviesList/movies_list_data.dart';
+
 
 class MovieSuggestionCard extends StatelessWidget {
   final SuggestionMovies suggMovie;

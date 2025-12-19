@@ -174,4 +174,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noSearchResults => 'No results found for this search';
+
+  @override
+  String get resetPassword => 'Reset PassWord';
+
+  @override
+  String get deleteAccount => 'Delete Account';
+
+  @override
+  String get updateData => 'UpDate Data';
 }

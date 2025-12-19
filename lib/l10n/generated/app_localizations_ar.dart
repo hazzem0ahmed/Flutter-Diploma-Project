@@ -174,4 +174,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noSearchResults => 'لا توجد نتائج لهذا البحث';
+
+  @override
+  String get resetPassword => 'إعادة تعيين كلمة المرور';
+
+  @override
+  String get deleteAccount => 'حذف الحساب';
+
+  @override
+  String get updateData => 'تعديل البيانات';
 }

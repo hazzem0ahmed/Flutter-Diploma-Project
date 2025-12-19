@@ -5,16 +5,18 @@ class AvatarData {
   final int id;
 
   AvatarData(this.imagePath, this.id);
+
+  static List<AvatarData> avatarList = [
+    AvatarData(AppAsset.avatar1, 1),
+    AvatarData(AppAsset.avatar2, 2),
+    AvatarData(AppAsset.avatar3, 3),
+    AvatarData(AppAsset.avatar4, 4),
+    AvatarData(AppAsset.avatar5, 5),
+    AvatarData(AppAsset.avatar6, 6),
+    AvatarData(AppAsset.avatar7, 7),
+    AvatarData(AppAsset.avatar8, 8),
+    AvatarData(AppAsset.avatar9, 9),
+  ];
 }
 
-List<AvatarData> avatarList = [
-  AvatarData(AppAsset.avatar1, 1),
-  AvatarData(AppAsset.avatar2, 2),
-  AvatarData(AppAsset.avatar3, 3),
-  AvatarData(AppAsset.avatar4, 4),
-  AvatarData(AppAsset.avatar5, 5),
-  AvatarData(AppAsset.avatar6, 6),
-  AvatarData(AppAsset.avatar7, 7),
-  AvatarData(AppAsset.avatar8, 8),
-  AvatarData(AppAsset.avatar9, 9),
-];
+

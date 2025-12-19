@@ -415,6 +415,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No results found for this search'**
   String get noSearchResults;
+
+  /// No description provided for @resetPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset PassWord'**
+  String get resetPassword;
+
+  /// No description provided for @deleteAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Account'**
+  String get deleteAccount;
+
+  /// No description provided for @updateData.
+  ///
+  /// In en, this message translates to:
+  /// **'UpDate Data'**
+  String get updateData;
 }
 
 class _AppLocalizationsDelegate

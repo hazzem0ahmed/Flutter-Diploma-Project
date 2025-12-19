@@ -15,7 +15,7 @@ class AvatarCarouselSlider extends StatelessWidget {
         viewportFraction: 0.4,
         enlargeCenterPage: true,
       ),
-      items: List.generate(avatarList.length, (index) {
+      items: List.generate(AvatarData.avatarList.length, (index) {
         return Builder(
           builder: (BuildContext context) {
             return GestureDetector(
@@ -24,7 +24,7 @@ class AvatarCarouselSlider extends StatelessWidget {
               },
               child: CircleAvatar(
                 radius: context.spaceHeight * 0.1,
-                backgroundImage: AssetImage(avatarList[index].imagePath),
+                backgroundImage: AssetImage(AvatarData.avatarList[index].imagePath),
               ),
             );
           },

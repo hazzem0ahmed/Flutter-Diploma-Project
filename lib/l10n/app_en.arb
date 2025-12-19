@@ -51,6 +51,8 @@
   "pickAvatar": "Pick Avatar",
   "search" : "Search",
   "errorSearch" : "Search failed. Please try again.",
-  "noSearchResults": "No results found for this search"
-
+  "noSearchResults": "No results found for this search",
+  "resetPassword": "Reset PassWord",
+  "deleteAccount": "Delete Account",
+  "updateData": "UpDate Data"
 }

@@ -51,7 +51,8 @@
   "pickAvatar": "اختر الصوره",
   "search" : "البحث",
   "errorSearch" : "حدث خطأ أثناء البحث. حاول مرة أخرى.",
-  "noSearchResults": "لا توجد نتائج لهذا البحث"
-
-
+  "noSearchResults": "لا توجد نتائج لهذا البحث",
+  "resetPassword": "إعادة تعيين كلمة المرور",
+  "deleteAccount": "حذف الحساب",
+  "updateData": "تعديل البيانات"
 }

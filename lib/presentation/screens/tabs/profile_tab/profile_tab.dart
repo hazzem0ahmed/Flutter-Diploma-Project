@@ -7,6 +7,7 @@ import 'package:movies/core/app_colors.dart';
 import 'package:movies/core/app_extensions.dart';
 import 'package:movies/di/modules/service_locator.dart';
 import 'package:movies/features/login/presentation/pages/login_screen.dart';
+import 'package:movies/presentation/screens/tabs/edit_profile/edit_profile.dart';
 import 'package:movies/presentation/screens/tabs/profile_tab/profile_tab_contract.dart';
 import 'package:movies/presentation/screens/tabs/profile_tab/profile_tab_view_model.dart';
 import 'package:movies/presentation/screens/tabs/profile_tab/profile_tabs_content/histiry_tab/history_tab.dart';
@@ -149,7 +150,7 @@ class _ProfileTabState extends State<ProfileTab>
                       flex: 3,
                       child: ElevatedButton(
                         onPressed: () {
-                          //todo
+                          Navigator.pushNamed(context, EditProfile.routeName);
                         },
                         style: ElevatedButton.styleFrom(
                           fixedSize: Size(
